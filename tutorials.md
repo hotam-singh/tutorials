@@ -58,7 +58,7 @@ Traditional Web Server
 
 Node.js Process Model:
 
-![NodeJS Process Model](https://drive.google.com/uc?export=view&id=1vivi22nhN5IL28wdIWgSQoE6_Kawolmo)
+![NodeJS Process Model](https://drive.google.com/file/d/1vivi22nhN5IL28wdIWgSQoE6_Kawolmo/view)
 
 ### What is Event Loop. How it works?
 
