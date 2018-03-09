@@ -249,7 +249,7 @@ exports.name = function() {
 ## PostgreSQL
 
 # NodeJS Pupular Modules
-## 1. passport
+## passport
 ### What is passport?
 `Passport` is an authentication middleware for NodeJS.
 
