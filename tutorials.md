@@ -5,13 +5,9 @@
     4. [MySQL](#mysql)
     5. [PostgreSQL](#postgresql)
 2. [NodeJS Pupular Modules](#nodejs-pupular-modules)
-    1. [passport](#passport)
-3. [Questions and Answers](#questions-and-answers)
-    1. [NodeJS Q & A](#nodejsqa)
-    2. [Mongodb Q & A](#mongodbqa)
-    3. [AngularJS Q & A](#angularjsqa)
-    4. [MySQL Q & A](#mysqlqaa)
-    5. [PostgreSQL Q & A](postgresqa)
+    1. [passport](#passport)   
+3. [Questions And Answers](#questions-and-answers)    
+
     
 # Tutorials
 
@@ -360,7 +356,7 @@ app.get('/api/users/me', passport.authenticate('basic', { session: false }), fun
 });
 ```
 
-# Questions & Answers
+# Questions And Answers
 ## NodeJS Q & A
 ### How to get clientId/clientSecret of Gmail account?
 Follow the below steps
