@@ -4,6 +4,8 @@
     3. [AngularJS](#angularjs)
     4. [MySQL](#mysql)
     5. [PostgreSQL](#postgresql)
+    6. [NodeJS With MongoDB](#nodejs-with-mongodb)
+    7. [NodeJS With MySQL](#nodejs-with-mysql)
 2. [NodeJS Pupular Modules](#nodejs-pupular-modules)
     1. [passport](#passport)   
 3. [Questions And Answers](#questions-and-answers)    
@@ -248,6 +250,47 @@ exports.name = function() {
 
 ## PostgreSQL
 
+## NodeJS with MongoDB
+### What are efficient ways to use mongodb in nodejs application?
+* Use global instance of db
+```javascript
+var db =  mongodb.connect('MongoDB connection URL'); 
+var app = express();
+app.set('db', db);
+```
+* Attach db using middleware
+```javascript
+var db =  mongodb.connect('MongoDB connection URL');
+app.use(function(req, res, next) {
+	req.db = db;
+})
+```
+* Reuse db object created by MongoClient.connect()
+```javascript
+use this line in a module where required:
+MongoClient.connect('MongoDB connection URL')
+```
+
+## NodeJS With MySQL 
+
+### How can I prevent SQL injection Node.JS?
+We can prevent sql-injection by parameter binding:
+
+**Example:**
+```javascript
+var userId = 5; 
+connection.query("SELECT * FROM table WHERE userid = '" + userId + "'", function(error) { 
+	if (error) throw error; 
+});
+
+//We can modify above query as:
+var userId = 5; 
+var sql =  'SELECT * FROM users WHERE id = ?';
+var query = connection.query(sql, [userId], function(err, results) { //query.sql returns SELECT * FROM users WHERE id = '5' 
+	if (err) throw error;
+});
+```
+
 # NodeJS Pupular Modules
 ## passport
 ### What is passport?
@@ -460,44 +503,3 @@ app.use(favicon(path.join(__dirname,'public','images','favicon.ico')));
 ## MySQL Questions And Answers
 
 ## PostgreSQL Questions And Answers
-
-### NodeJS with MongoDB
-### What are efficient ways to use mongodb in nodejs application?
-* Use global instance of db
-```javascript
-var db =  mongodb.connect('MongoDB connection URL'); 
-var app = express();
-app.set('db', db);
-```
-* Attach db using middleware
-```javascript
-var db =  mongodb.connect('MongoDB connection URL');
-app.use(function(req, res, next) {
-	req.db = db;
-})
-```
-* Reuse db object created by MongoClient.connect()
-```javascript
-use this line in a module where required:
-MongoClient.connect('MongoDB connection URL')
-```
-
-### NodeJS With MySQL 
-
-### How can I prevent SQL injection Node.JS?
-We can prevent sql-injection by parameter binding:
-
-**Example:**
-```javascript
-var userId = 5; 
-connection.query("SELECT * FROM table WHERE userid = '" + userId + "'", function(error) { 
-	if (error) throw error; 
-});
-
-//We can modify above query as:
-var userId = 5; 
-var sql =  'SELECT * FROM users WHERE id = ?';
-var query = connection.query(sql, [userId], function(err, results) { //query.sql returns SELECT * FROM users WHERE id = '5' 
-	if (err) throw error;
-});
-```
