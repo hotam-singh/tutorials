@@ -360,12 +360,8 @@ app.get('/api/users/me', passport.authenticate('basic', { session: false }), fun
 });
 ```
 
-
-
 # Questions & Answers
-
 ## NodeJS Q & A
-
 ### How to get clientId/clientSecret of Gmail account?
 Follow the below steps
 
