@@ -7,11 +7,11 @@
 2. [NodeJS Pupular Modules](#nodejs-pupular-modules)
     1. [passport](#passport)   
 3. [Questions And Answers](#questions-and-answers)    
-    1. [NodeJS Q & A](#nodejsqa)
-    2. [Mongodb Q & A](#mongodbqa)
-    3. [AngularJS Q & A](#angularjsqa)
-    4. [MySQL Q & A](#mysqlqaa)
-    5. [PostgreSQL Q & A](postgresqa)
+    1. [NodeJS Questions And Answers](#nodejsqa)
+    2. [MongoDB Questions And Answers](#mongodbqa)
+    3. [AngularJS Questions And Answers](#angularjsqa)
+    4. [MySQL Questions And Answers](#mysqlqaa)
+    5. [PostgreSQL Questions And Answers](postgresqa)
     
 # Tutorials
 
@@ -361,7 +361,7 @@ app.get('/api/users/me', passport.authenticate('basic', { session: false }), fun
 ```
 
 # Questions And Answers
-## NodeJS Q & A
+## NodeJS Questions And Answers
 ### How to get clientId/clientSecret of Gmail account?
 Follow the below steps
 
@@ -452,6 +452,14 @@ app.use(favicon(__dirname + '/public/images/favicon.ico'));
 //Or better, using the path module:
 app.use(favicon(path.join(__dirname,'public','images','favicon.ico')));
 ```
+
+## MongoDB Questions And Answers
+
+## AngularJS Questions And Answers
+
+## MySQL Questions And Answers
+
+## PostgreSQL Questions And Answers
 
 ### NodeJS with MongoDB
 ### What are efficient ways to use mongodb in nodejs application?
