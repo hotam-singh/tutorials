@@ -69,7 +69,7 @@ Event Loop: It has main 2 functionalities
 * Whatever the task `Web APIs` hands over  to event loop, It simply adds them up in the `callback queue`.
 * Looks if `call stack` is free, pick task from the callback queue and puts it into call stack for execution.
 
-[See Event Loop](https://drive.google.com/uc?export=view&id=1mBtTkZKHDOg_WUOeZm2-CUS88jD6BZUB)
+[See Event Loop](https://github.com/hotam-singh/tutorials/blob/master/images/node_3.png)
 
 ### What is Call Stack? 
 Call Stack is only the javascript runtime on server where javascript is run.
