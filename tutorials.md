@@ -69,7 +69,7 @@ Event Loop: It has main 2 functionalities
 * Whatever the task `Web APIs` hands over  to event loop, It simply adds them up in the `callback queue`.
 * Looks if `call stack` is free, pick task from the callback queue and puts it into call stack for execution.
 
-[See Event Loop](https://github.com/hotam-singh/tutorials/blob/master/images/node_3.png)
+![Event Loop](https://github.com/hotam-singh/tutorials/blob/master/images/node_3.png)
 
 ### What is Call Stack? 
 Call Stack is only the javascript runtime on server where javascript is run.
@@ -89,20 +89,20 @@ The closure has 3 scope chains
 
 **Example 1 :** 
 
-![Closure Example 1](https://drive.google.com/uc?export=view&id=1uHL0FRZzOY2lpf0bjfU_P1_bELTbEAnD)
+![Closure Example 1](https://github.com/hotam-singh/tutorials/blob/master/images/node4.png)
 
 **Example 2 :** 
 
-![Closure Example 2](https://drive.google.com/uc?export=view&id=14bPuHk7fQw9Op_Mezy14nckI9ex3s89p)
+![Closure Example 2](https://github.com/hotam-singh/tutorials/blob/master/images/node5.png)
 ### Types of closure?
 There are two types of closures:
 #### 1. Implicit Closure
 
-![Implicit Closure](https://drive.google.com/uc?export=view&id=1LREZOlr513lsfJw_sCs8GlHyi6IcJuBj)
+![Implicit Closure](https://github.com/hotam-singh/tutorials/blob/master/images/node6.png)
 
 #### 2. Explicit Closure
 
-![Explicit Closure](https://drive.google.com/uc?export=view&id=1ael0wwzoqEYjB0YLDBzvnT39gdeR4hIL)
+![Explicit Closure](https://github.com/hotam-singh/tutorials/blob/master/images/node7.png)
 
 ### What is callback-hell?
 Callback hell is a nested callbacks. It leads to some confusion and difficult-to-read code when nested callbacks are very deep.
