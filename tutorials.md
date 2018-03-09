@@ -352,6 +352,8 @@ app.get('/api/users/me', passport.authenticate('basic', { session: false }), fun
 });
 ```
 
+
+
 # Questions & Answers
 
 ## NodeJS Q & A
@@ -447,7 +449,7 @@ app.use(favicon(__dirname + '/public/images/favicon.ico'));
 app.use(favicon(path.join(__dirname,'public','images','favicon.ico')));
 ```
 
-# NodeJS with MongoDB
+### NodeJS with MongoDB
 ### What are efficient ways to use mongodb in nodejs application?
 * Use global instance of db
 ```javascript
@@ -468,7 +470,7 @@ use this line in a module where required:
 MongoClient.connect('MongoDB connection URL')
 ```
 
-# NodeJS With MySQL 
+### NodeJS With MySQL 
 
 ### How can I prevent SQL injection Node.JS?
 We can prevent sql-injection by parameter binding:
@@ -487,4 +489,3 @@ var query = connection.query(sql, [userId], function(err, results) { //query.sql
 	if (err) throw error;
 });
 ```
-### Installation Instructions
