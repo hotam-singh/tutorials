@@ -7,11 +7,11 @@
 2. [NodeJS Pupular Modules](#nodejs-pupular-modules)
     1. [passport](#passport)   
 3. [Questions And Answers](#questions-and-answers)    
-    1. [NodeJS Questions And Answers](#nodejsqa)
-    2. [MongoDB Questions And Answers](#mongodbqa)
-    3. [AngularJS Questions And Answers](#angularjsqa)
-    4. [MySQL Questions And Answers](#mysqlqaa)
-    5. [PostgreSQL Questions And Answers](postgresqa)
+    1. [NodeJS Questions And Answers](#nodejs-questions-and-answers)
+    2. [MongoDB Questions And Answers](#mongodb-questions-and-answers)
+    3. [AngularJS Questions And Answers](#angularjs-questions-and-answers)
+    4. [MySQL Questions And Answers](#mysql-questions-and-answers)
+    5. [PostgreSQL Questions And Answers](#postgresql-questions-and-answers)
     
 # Tutorials
 
