@@ -58,7 +58,7 @@ Traditional Web Server
 
 Node.js Process Model:
 
-![NodeJS Process Model](https://drive.google.com/file/d/1vivi22nhN5IL28wdIWgSQoE6_Kawolmo/view)
+![NodeJS Process Model](https://raw.githubusercontent.com/hotam-singh/tutorials/images/node_2.png.png)
 
 ### What is Event Loop. How it works?
 
@@ -69,7 +69,7 @@ Event Loop: It has main 2 functionalities
 * Whatever the task `Web APIs` hands over  to event loop, It simply adds them up in the `callback queue`.
 * Looks if `call stack` is free, pick task from the callback queue and puts it into call stack for execution.
 
-![Event Loop](https://drive.google.com/uc?export=view&id=1mBtTkZKHDOg_WUOeZm2-CUS88jD6BZUB)
+[See Event Loop](https://drive.google.com/uc?export=view&id=1mBtTkZKHDOg_WUOeZm2-CUS88jD6BZUB)
 
 ### What is Call Stack? 
 Call Stack is only the javascript runtime on server where javascript is run.
