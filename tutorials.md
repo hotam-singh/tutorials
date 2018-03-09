@@ -1,11 +1,12 @@
 1. [Tutorials](#tutorials)
     1. [NodeJS](#nodejs)
-    	1. [Modules](#modules)
     2. [Mongodb](#mongodb)
     3. [AngularJS](#angularjs)
     4. [MySQL](#mysql)
     5. [PostgreSQL](postgres)
-2. [Questions & Answers](#question_and_answers)
+2. [NodeJS Pupular Modules](#modules)
+    1. [passport](#passport)
+3. [Questions & Answers](#question_and_answers)
     1. [NodeJS Q & A](#nodejsqa)
     2. [Mongodb Q & A](#mongodbqa)
     3. [AngularJS Q & A](#angularjsqa)
@@ -72,6 +73,7 @@ Event Loop: It has main 2 functionalities
 Call Stack is only the javascript runtime on server where javascript is run.
 ### What is Web APIs?
 Web APIs are those handlers which makes async programming possible. Web APIs are basically callbacks that return response once completed the given task.
+
 ### What is Callback Queue?
 callback queue is a queue where all callbacks are queued up. Event loop process tasks from this queue.
 
@@ -197,16 +199,8 @@ promise.race([cleanRoom, removeGarbage, winIcecream]).then(function() {
 });
 ```
 
-
-
-
-
-
-
 ### What are middleware in node.js?
 Middleware are the functions that are invoked by the Express routing layer before your final request handler is made. Express invokes all the middleware functions each time when client makes a request. 
-
- 
 
 ### What is the difference between exports and module.exports?
 
