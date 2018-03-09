@@ -247,7 +247,7 @@ exports.name = function() {
 ### What is mongoDB?
 MongoDB is an open source document database that provides `high performance`, `high availability` and `automatic scaling`. Document database is a data structure composed of `key` and `value` pairs. MongoDB documents are similar to `JSON` objects.
 
-![BSON Docement](https://github.com/hotam-singh/tutorials/tree/master/images/mongo1.png)
+![BSON Docement](https://github.com/hotam-singh/tutorials/blob/master/images/mongo1.png)
 
 ### What do you understand by NoSQL databases?
 NoSQL is a type of database that can handle and sort all type of unstructured, messy and complicated data. It is just a new way to think about database.
@@ -305,7 +305,7 @@ MongoDB provides three ways to perform aggregation:
 #### Aggregation Pipeline: 
 The aggregation pipeline is a framework for data aggregation modeled on the concept of data processing pipelines. Documents enter a multi-stage pipeline that transforms the documents into aggregated results.
 
-![Aggregation Example](https://github.com/hotam-singh/tutorials/tree/master/images/mongo2.png)
+![Aggregation Example](https://github.com/hotam-singh/tutorials/blob/master/images/mongo2.png)
 
 #### Map-Reduce:
 MongoDB also provides map-reduce operations to perform aggregation. In general, map-reduce operations have two phases: a map stage that processes each document and emits one or more objects for each input document, and reduce phase that combines the output of the map operation. Optionally, map-reduce can have a finalize stage to make final modifications to the result. Like other aggregation operations, map-reduce can specify a query condition to select the input documents as well as sort and limit the results.
@@ -314,12 +314,12 @@ Map-reduce uses custom JavaScript functions to perform the map and reduce operat
 
 Map-reduce can operate on a sharded collection. Map reduce operations can also output to a sharded collection. See Aggregation Pipeline and Sharded Collections and Map-Reduce and Sharded Collections for details.
 
-![Map Reduce Example](https://github.com/hotam-singh/tutorials/tree/master/images/mongo3.png)
+![Map Reduce Example](https://github.com/hotam-singh/tutorials/blob/master/images/mongo3.png)
 
 #### Single Purpose Aggregation Operations:
 MongoDB also provides `db.collection.count()` and `db.collection.distinct()`
 
-![Single Purpose Aggregation](https://github.com/hotam-singh/tutorials/tree/master/images/mongo4.png)
+![Single Purpose Aggregation](https://github.com/hotam-singh/tutorials/blob/master/images/mongo4.png)
 
 ### What is sharding in MongoDB?
 In MongoDB, Sharding is a procedure of storing data records across multiple machines. It is a MongoDB approach to meet the demands of data growth. It creates horizontal partition of data in a database or search engine. Each partition is referred as shard or database shard.
@@ -338,17 +338,17 @@ In MongoDB
 
 ### SQL to Aggregation mapping chart?
 
-![SQL to Aggregation mapping chart](https://github.com/hotam-singh/tutorials/tree/master/images/mongo5.png)
+![SQL to Aggregation mapping chart](https://github.com/hotam-singh/tutorials/blob/master/images/mongo5.png)
 
 **Count Example:**
-![Count Example](https://github.com/hotam-singh/tutorials/tree/master/images/mongo6.png)
+![Count Example](https://github.com/hotam-singh/tutorials/blob/master/images/mongo6.png)
 
 **Sum Example:**
-![Sum Example](https://github.com/hotam-singh/tutorials/tree/master/images/mongo7.png)
+![Sum Example](https://github.com/hotam-singh/tutorials/blob/master/images/mongo7.png)
 
 **Groupby and Orderby Example:**
-![Groupby and Orderby Example](https://github.com/hotam-singh/tutorials/tree/master/images/mongo8.png)
-![Groupby and Orderby Example](https://github.com/hotam-singh/tutorials/tree/master/images/mongo9.png)
+![Groupby and Orderby Example](https://github.com/hotam-singh/tutorials/blob/master/images/mongo8.png)
+![Groupby and Orderby Example](https://github.com/hotam-singh/tutorials/blob/master/images/mongo9.png)
 
 ## AngularJS
 
