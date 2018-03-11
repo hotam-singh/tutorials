@@ -1,21 +1,33 @@
 1. [Tutorials](#tutorials)
-    1. [NodeJS](#nodejs)
-    2. [MongoDB](#mongodb)
-    3. [AngularJS](#angularjs)
-    4. [MySQL](#mysql)
-    5. [PostgreSQL](#postgresql)
-    6. [NodeJS With MongoDB](#nodejs-with-mongodb)
-    7. [NodeJS With MySQL](#nodejs-with-mysql)
+	1. [JavaScript](#javascript)
+    2. [NodeJS](#nodejs)
+    3. [MongoDB](#mongodb)
+    4. [AngularJS](#angularjs)
+    5. [MySQL](#mysql)
+    6. [PostgreSQL](#postgresql)
+    7. [NodeJS With MongoDB](#nodejs-with-mongodb)
+    8. [NodeJS With MySQL](#nodejs-with-mysql)
 2. [NodeJS Pupular Modules](#nodejs-pupular-modules)
     1. [passport](#passport)   
 3. [Questions And Answers](#questions-and-answers)    
-    1. [NodeJS Questions And Answers](#nodejs-questions-and-answers)
-    2. [MongoDB Questions And Answers](#mongodb-questions-and-answers)
-    3. [AngularJS Questions And Answers](#angularjs-questions-and-answers)
-    4. [MySQL Questions And Answers](#mysql-questions-and-answers)
-    5. [PostgreSQL Questions And Answers](#postgresql-questions-and-answers)
-    
+	1. [JavaScript Questions And Answers](#javascript-questions-and-answers)
+    2. [NodeJS Questions And Answers](#nodejs-questions-and-answers)
+    3. [MongoDB Questions And Answers](#mongodb-questions-and-answers)
+    4. [AngularJS Questions And Answers](#angularjs-questions-and-answers)
+    5. [MySQL Questions And Answers](#mysql-questions-and-answers)
+    6. [PostgreSQL Questions And Answers](#postgresql-questions-and-answers)
+4. [Important Commands](#important-commands)
+	1. [Linux Commands](#linux-commands)
+ 	2. [GitHub Commands](#github-commands)
+    3. [NodeJS Commands](#nodejs-commands)
+    4. [NPM Commands](#npm-commands)
+    5. [MySQL Commands](#mysal-commands)
+    6. [PostgresQL Commands](#postgresql-commands)
+    7. [MongoDB Commands](#mongodb-commands)
+    8. [Elasticsearch Commands](#elasticsearch-commands)
 # Tutorials
+
+## JavaScript
 
 ## NodeJS
 
@@ -24,9 +36,23 @@ Node.js is a javascript runtime built on chrome’s V8 engine for building fast 
 
 Node.js is basically a library and a runtime environment that allows us to execute javascript on the server.
 
-### What is V8?
-V8 is Google’s open-source high-performance javascript engine written in c++. V8 has following functionalities.
+### What Node.js is not?
+* Node.js is not a JavaScript library, but it is a platform to execute JavaScript on server side.
+* Node.js programs are written in JavaScript but there is no DOM manipulation provided by Node.js.
 
+### Who has developed Node.js?
+Node.js was developed by `Ryan Dahl` and other developers working at `Joyent`. It was first released in 2009
+supporting only Linux. In 2011, windows version was released.
+
+### What is V8?
+
+V8 is Google’s open-source high-performance javascript engine written in c++ and implements ES5.
+
+**Key Points about V8 JavaScript Engine:**
+
+* It can be run standalone or can be embedded into any C++ application.
+* It uses just-in-time compilation (JIT) to execute JavaScript code.
+* It is used by many open source projects like Node.js and MongoDB to execute JavaScript on server side.
 * Compiles and executes javascript source code.
 * Handles memory allocation for objects.
 * Garbage collects the objects if no longer needed.
@@ -38,6 +64,30 @@ V8 is Google’s open-source high-performance javascript engine written in c++. 
 * **SpiderMonkey** used by `Mozzila`
 * **JavaScriptCore** used by `Apple`
 
+### Why to use JavaScript on Server Side?
+There are following reasons to use JavaScript on Server Side:
+
+* Unified language for both front-end and back-end.
+* Increase programmer productivity.
+* Code reusability.
+* Exchange of data using JSON.
+* JavaScript with V8 engine performs faster than Php, Ruby, Python, JSP and ASP.NET.
+
+### Who are using Node.js for their development?
+Following companies are using Node.js for their development:
+
+* Walmart
+* E-bay
+* PayPal
+* Microsoft
+* LinkedIn
+* Yahoo
+* Google
+* SAP
+* IBM
+* Strong Loop
+* Dropbox
+
 ### What is npm?
 Npm stands for node package manager. It has main 2 functions.
 
@@ -45,10 +95,78 @@ Npm stands for node package manager. It has main 2 functions.
 * Command line utility to install Node.js modules, version management and dependency management.
 
 ### Why Node.js?
-* No need to learn another language for server side code.
-* Non-blocking
-* Very Fast
-* Single threaded but highly scalable.
+**Open Source:** Node.js is open source, so it’s free to use and no need to pay for license. There are also many open
+source modules supported by Node.js.
+
+**No need to learn another language for server side code.**
+
+**Non-blocking**
+
+**Very Fast**
+
+**Single threaded but highly scalable:** You can scale your Node.js application by using two ways – `Horizontal Scaling` and `Vertical Scaling`,
+which helps you to improve your application performance.
+
+* In Horizontal scaling you can add more nodes to your existing system.
+* In Vertical scaling you can add more resources to a single node.
+
+### What are the limitations of Node.js?
+There are following limitations of Node.js:
+
+* It doesn’t support multi-threaded programming.
+* It doesn’t support very high computational intensive tasks. When it executes long running task, it will queue
+all the incoming requests to wait for execution, since it follows JavaScript event loop which is single
+threaded.
+* Node is not good for executing synchronous and CPU intensive tasks.
+
+### What is callback?
+A callback is an anonimous function which passed as an argument to an asynchronous function, that describes what
+to do after the asynchronous operation has completed. Callbacks are used frequently in node.js development.
+
+```javascript
+var fs = require('fs');
+//callback function to read file data
+fs.readFile('text.txt', 'utf8', function (err, data) { //callback function
+	console.log(data);
+});
+```
+
+###Explain Node.js Architecture?
+Node.js has mainly two types of components – core components and node.js API (modules). The core
+components are written in C and C++, and node.js API are written in JavaScript. Diagram for Node.js architecture
+is given below:
+
+![NodeJS Architecture](https://github.com/hotam-singh/tutorials/blob/master/images/node8.png)
+
+**C/C++ Add-ons:** – You can also develop your Node.js Add-ons using C/C++ to work with Node.js.
+
+**Node.js Binding:** – These are Core API, which bind the JavaScript with C / C++ libraries.
+
+**Node.js API:** – These are written in JavaScript and directly exposed to outer world to interact with Node.js internal
+components.
+
+**V8:** – It is Google’s open source JavaScript engine, written in C++. Actually, it is a JavaScript VM which compile the
+JavaScript code into native machine code instead interpretation. It is the fastest JIT (Just-In-Time) compiler for
+JavaScript.
+
+**Libuv:** – It is a multi-platform support C++ library which is responsible for handling thread pool, event loop and
+async I/O operations in Node.js. In Node.js, blocking I/O operations are delegated to LibUV modules which has a
+fixed size C++ thread pool to handle these operations. When these operations are completed, they are notified to
+Event loop.
+
+**C-ares:** – It is a C library for handling async DNS request, name resolves and multiple DNS queries in parallel.
+
+**http_parser:** – It is a C library for parsing HTTP request and response.
+
+**OpenSSL:** – It is a C library for the implementation of Secure Sockets Layer (SSL v2/v3) and Transport Layer Security
+(TLS v1) protocols. It also provides all the necessary cryptography methods like hash, cipher, decipher, sign and
+verify etc.
+
+**Zlib:** – It is a C library for data compression and decompression.
+
+### What is REPL Terminal?
+REPL stands for Read-Eval-Print-Loop. It is an interface to run your JavaScript code and see the results.
+You can access REPL by simply running node.js command prompt and simply run command `node`.
 
 ### How Node.js work?
 
@@ -200,6 +318,32 @@ promise.race([cleanRoom, removeGarbage, winIcecream]).then(function() {
 	console.log('one of the task finished');
 });
 ```
+### What is Buffer?
+
+### What are Stream?
+
+### What are evets & event emitters?
+
+### How to create an Http Server using Node.js?
+Node.js is best for developing HTTP based application. http module is used to create an http server.
+
+```javascript
+var http=require("http");
+http.createServer(function(req,res){
+	res.writeHead(200,{"Content-Type":"text/html"});
+	res.write("<h1>Hello, Node.js Http Server!</h1>");
+	res.end(); //to end response
+}).listen(8081);
+console.log("Server is running at http://localhost:8081");
+```
+
+### What are Node.js Http module limitations?
+Node.js http module has following limitations:
+
+* No cookies handling or parsing.
+* No built-in session support.
+* No built-in routing supp.
+* No static file serving.
 
 ### What are middleware in node.js?
 Middleware are the functions that are invoked by the Express routing layer before your final request handler is made. Express invokes all the middleware functions each time when client makes a request. 
@@ -352,9 +496,107 @@ In MongoDB
 
 ## AngularJS
 
+What is a service?
+
+* It provides us method to keep data across the lifetime of the angular app
+* It provides us method to communicate data across the controllers in a consistent way
+* This is a singleton object and it gets instantiated only once per application
+* It is used to organize and share data and functions across the application
+
+Angular only creates instance of a service when an application component depends on it. Keep in mind that services are singleton object and gets instantiated once per angular app using the `$injector` and they gets created when angular app components need them.
+
+**Example:**
+
+service to find square of a number:
+```javascript
+var CalculatorService = angular.module('CalculatorService', [])
+.service('Calculator', function () {
+	this.square = function (a) { return a*a};
+});
+```
+
+An AngularJS service can be created or registered or created using the following different ways:
+
+* Using the service() method
+* Using the factory() method
+* Using the provider() method
+* Using the value() method
+* Using the constant() method
+
+### What are directives?
+
+#### ng-src:
+**Example:**
+
+index.html:
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>NG-SRC Demo</title>
+    <script src="./angular.min.js"></script>
+    <script src="./angular-route.js"></script>
+    <script src="./script.js"></script>
+</head>
+<body ng-app="myApp">
+    <div ng-controller="myController">
+        <div>
+            <h2><label>Name:</label>{{ country.name }}</h2>
+        </div>
+        <div>
+            <h2><label>Capital:</label>{{ country.capital }}</h2>
+        </div>
+        <div>
+            <img ng-src="{{ country.flag }}" alt="Indian Flag" heigth="200px;" width="400px;" />
+        </div>
+        
+    </div>
+</body>
+</html>
+```
+script.js:
+```javascript
+var myApp = angular.module('myApp', [])
+
+.controller('myController', function($scope) {
+    $scope.country = {
+        name: "India",
+        capital: "New Delhi",
+        flag: "./indian_flag.png"
+    };
+});
+```
+
 ## MySQL
 
 ## PostgreSQL
+
+### What is PostgreSQL?
+PostgreSQL is an open-source, object-relational database management system (ORDBMS).
+
+PostgreSQL is developed by the `PostgreSQL Global Development Group`.
+
+It is released under the PostgreSQL License, which is an MIT-style license, 
+and thus free and open source software.
+
+PostgreSQL features highlights?
+
+* User-defined types
+* Table inheritance
+* Sophisticated locking mechanism
+* Foreign key referential integrity
+* Nested transactions (savepoints)
+* Multi-version concurrency control (MVCC)
+* Asynchronous replication
+
+The recent versions of PostgreSQL support the following features:
+
+* Native Microsoft Windows Server version
+* Tablespaces
+* Point-in-time recovery
 
 ## NodeJS with MongoDB
 ### What are efficient ways to use mongodb in nodejs application?
@@ -510,6 +752,43 @@ app.get('/api/users/me', passport.authenticate('basic', { session: false }), fun
 ```
 
 # Questions And Answers
+
+## JavaScript Questions And Answers
+
+### Array reduce method?
+
+**Example:**
+
+Get the sum of the numbers in the array:
+```javascript
+var numbers = [65, 44, 12, 4];
+
+function getSum(total, num) {
+    return total + num;
+}
+function myFunction(item) {
+    document.getElementById("demo").innerHTML = numbers.reduce(getSum);
+}
+```
+
+**Definition:**
+
+The `reduce()` method reduces the array to a single value and executes a provided function for each value of the array 
+    (from left-to-right). 
+
+**Syntax:**
+
+```javascript
+array.reduce(function(total, currentValue, currentIndex, arr), initialValue);
+```
+Where:
+
+* **total:** (*) The initialValue, or the previously returned value of the function.
+* **currentValue:** (*) The value of the current element of an array.
+* **currentIndex:** The array index of the current element.
+* **arr:** The array object the current element belongs to.
+* **initialValue:** A value to be passed to the function as the initial value.
+
 ## NodeJS Questions And Answers
 ### How to get clientId/clientSecret of Gmail account?
 Follow the below steps
@@ -604,8 +883,335 @@ app.use(favicon(path.join(__dirname,'public','images','favicon.ico')));
 
 ## MongoDB Questions And Answers
 
+### How to plug-in own promise library in mongodb?
+```javascript
+//use native promise library
+var mongoose = require('mongoose');
+mongoose.Promise = global.Promise;
+
+//Use bluebird promise library
+var mongoose = require('mongoose');
+mongoose.Promise = require('promise'); 
+
+//Use q promise library
+var mongoose = require('mongoose');
+mongoose.Promise = require('q').Promise;
+```
+
+### What are the supported data types in mongodb?
+The allowed SchemaTypes are:
+
+* String
+* Number
+* Date
+* Buffer
+* Boolean
+* Mixed
+* ObjectId
+* Array
+
 ## AngularJS Questions And Answers
+
+### AngularJs `$http.post()` does not send data to the server?
+
+The difference is in how jQuery and AngularJS serialize and transmit the data. Fundamentally, 
+the problem lies with your server language of choice being unable to understand AngularJS’s 
+transmission natively. By default, jQuery transmits data using
+
+`
+Content-Type: x-www-form-urlencoded
+and the familiar foo=bar&baz=moe serialization.
+`
+
+And AngularJS, however, transmits data using
+
+`Content-Type: application/json 
+and { "foo": "bar", "baz": "moe" }`
+
+We can solve this by setting content-type as the following two ways:
+
+**Solution 1:**
+
+```javascript
+angular.module('MyModule', [], function($httpProvider) {
+	// Use x-www-form-urlencoded Content-Type
+	$httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
+});
+
+//and send $http.post() like this:
+$http.post('/register', DataObject)
+	.then(function(response) {
+		alert('resp : ' + response);
+    });
+});
+```
+**Solution 2:**
+```javascript
+$http({
+    method: 'POST',
+    url: '/register',
+    data: this.regData,
+    headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+});
+```
 
 ## MySQL Questions And Answers
 
 ## PostgreSQL Questions And Answers
+
+# Important Commands
+
+## Linux Commands
+
+### check ubuntu version
+`$ lsb_release -a`
+
+### Change password for a user in ubuntu
+`$ passwd`
+
+### access to the root directories
+```
+$ sudo -H /bin/bash 
+$ cd /etc/apt
+do your editing of files
+exit
+```
+### create a soft link
+`$ sudo ln -fs /home/hotam/project/git/QA-automation /etc/automation`
+
+### Check Permissions For A Directory or File in linux
+`$ ls -la /root or <any directory here>`
+
+### edit `/etc/environment` directory
+`$ sudo -H gedit /etc/environment`
+
+### create hard link in linux
+`$ ln {source} {link}`
+
+### Enable wifi
+`$ sudo service network-manager restart`
+
+### get wi-fi configuration
+`$ iwconfig`
+
+### Get all info and cause of issue in a txt file.
+`$ wget -N -t 5 -T 10 https://github.com/UbuntuForums/wireless-info/raw/master/wireless-info && chmod +x wireless-info && ./wireless-info`
+
+### BIOS status for bluetooth and wi-fi
+```
+$ rfkill list
+$ sudo rfkill unblock all
+```
+
+### Install cryptkeeper on ubuntu
+```
+$ sudo apt-get update
+$ sudo apt-get install cryptkeeper
+```
+
+## GitHub Commands
+
+### Fiest commit on GitHub
+```
+$ echo "# elasticsearch_with_node" >> README.md
+$ git init
+$ git add .
+$ git add README.md //optional
+$ git commit -m "first commit"
+$ git remote add origin https://github.com/hotam-singh/<repository_name>.git
+$ git push -u origin master
+```
+## NodeJS Commands
+
+### install node.js in ubuntu
+```
+$ sudo apt-get update
+$ sudo apt-get install nodejs
+$ nodejs -v
+```
+
+### install npm in ubuntu
+```
+$ sudo apt-get install npm
+$ npm -v
+```
+
+### replace nodejs with node
+```
+$ ln -s /usr/bin/nodejs /usr/bin/node OR sudo ln -s /usr/bin/nodejs /usr/bin/node
+$ nodejs -v
+$ node -v
+```
+
+### upgrade node to the latest version
+```
+$ sudo npm cache clean -f
+$ sudo npm install -g n
+$ sudo n stable
+$ node -v
+```
+
+### Updating node modules inside package.json
+```
+$ sudo npm install -g npm-check-updates
+$ ncu
+$ ncu –u
+$ npm install
+```
+
+### Stop running process
+```
+$ killall node
+$ ps -ef|grep node
+```
+
+### To get any application already running on specific port which we are trying to connect to
+`$ sudo lsof -i -P -n | grep LISTEN`
+
+### Killing Node Process Running In Backend solution: 1
+`$ pkill -f node`
+
+### Killing Node Process Running In Backend solution: 2
+```
+$ ps aux | grep node
+$ kill -9 process_id
+```
+
+## NPM Commands
+
+### update npm to latest version 
+`$ sudo npm i -g npm`
+
+## MySQL Commands
+
+### Install mysql on ubuntu
+```
+$ sudo apt-get update
+$ sudo apt-get install mysql-server
+
+// Run security script. It will allow you to set default security settings.
+$ mysql_secure_installation
+```
+
+### connect to mysql database
+`$ mysql -u root -p`
+
+### change mysql password if forgot
+```
+$ sudo /etc/init.d/mysql stop
+$ sudo mysqld --skip-grant-tables & mysql -u root mysql
+$ UPDATE mysql.user SET Password=PASSWORD('YOURNEWPASSWORD') WHERE User='root'; FLUSH PRIVILEGES; exit;
+```
+
+### To verify my mysql installed or not on ubuntu
+`$ dpkg --get-selections | grep mysql`
+
+### run mysql on beta server
+`$ mysql -hbetadb.websitetoolbox.com -uhotam -p`
+
+### Check version of MYSQL
+`$ SELECT VERSION(); after login into mysql shell`
+
+### dump data from database
+```
+$ mysqldump -h <hostname> -u <user> --password=<password> <databasename> > filename.sql   in your terminal
+Example:
+$ mysqldump -h localhost -u root --password=902819 test > test.sql
+```
+### dump data into database
+```
+$ mysqldump -h <hostname> -u <user> --password=<password> <databasename> < filename.sql   in your terminal
+Example:
+$ mysqldump -h localhost -u root --password=902819 test < test.sql
+```
+
+### create database
+`$ create database <database_namee>;`
+
+
+### drop database
+`$ drop database <datanase_name>;`
+
+## PostgresQL Commands
+
+### postgres database commands
+```
+$ sudo service postgresql restart
+$ dropdb ETP_test
+$ createdb ETP_test
+$ sudo -u postgres psql -d ETP_test -c "alter user "$USER" with password 'password';"
+```
+
+### Running postgres database 
+```
+$ sudo -u postgres psql
+$ \list or \l      //List all databases
+$ \connect database_name or \c databse_name     //Connect to listed databases
+$ \dt     //List Database Tables
+```
+
+### Creating dump file of existing data in postgres
+`$ pg_dump -U $USER -W -d database_name > ETPDump_file  //-W=password, -d=dump`
+
+### Create dump file of existing database schema in pstgres
+`$ pg_dump -U $USER -W -Cs ETP_test > ETPDump  //-W=password -Cs=create schema`
+
+### Back up single table from a database
+`$ pg_dump --host localhost --port 5432 -U $USER --format plain --verbose --file "file_name_here" --table public.<table_name_here> <database_name_here>`
+
+### Check version of PostgreSQL
+`SELECT VERSION(); after login into postgres shell`
+
+### dump data into database
+```
+$ psql <database_name> < filename
+Example:
+$ psql dump < psqldump
+```
+
+### dump data from database
+```
+$ pg_dump <database_name> > filename
+Example:
+$ pg_dump puppies > psqldump
+```
+
+## MongoDB Commands
+ 	
+### check mongodb version
+In mongo shell:
+
+`db.version()`
+
+### dump data to mongodb
+`$ mongoimport -d <database name> -c <collection name> --type <file type> <path to a file> --headerline`
+
+### dump database from mongodb
+`$ mongoexport --db <datanase_name> --collection <collection_name> --out filename.json/filename.csv`
+
+## Elasticsearch Commands
+
+### Elastic Search server Configuration on production server
+```
+//After installation process, run below command to give permissions to elasticsearch directory
+$ sudo chown -R elasticsearch:elasticsearch /var/lib/elasticsearch/
+```
+
+### Edit configuration of elasticsearch
+```
+//etc/elasticsearch/elasticsearch.yml file
+$ sudo nano /etc/elasticsearch/elasticsearch.yml
+```
+
+### Restart elastic search server when any modification is made in /etc/elasticsearrch/elasticsearch.yml
+```
+$ sudo service elasticsearch restart
+$ sudo /etc/init.d/elasticsearch start
+```
+
+### Get the status of elasticsearch server status
+```
+$ sudo service elasticsearch status 
+// OR 
+$ curl -X GET 'http://<server_ip_address>:9200'
+```
