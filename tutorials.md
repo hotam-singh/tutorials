@@ -5,8 +5,9 @@
     4. [AngularJS](#angularjs)
     5. [MySQL](#mysql)
     6. [PostgreSQL](#postgresql)
-    7. [NodeJS With MongoDB](#nodejs-with-mongodb)
-    8. [NodeJS With MySQL](#nodejs-with-mysql)
+    7. [Elasticsearch](#Elasticsearch)
+    8. [NodeJS With MongoDB](#nodejs-with-mongodb)
+    9. [NodeJS With MySQL](#nodejs-with-mysql)
 2. [NodeJS Pupular Modules](#nodejs-pupular-modules)
     1. [passport](#passport)   
 3. [Questions And Answers](#questions-and-answers)    
@@ -16,6 +17,7 @@
     4. [AngularJS Questions And Answers](#angularjs-questions-and-answers)
     5. [MySQL Questions And Answers](#mysql-questions-and-answers)
     6. [PostgreSQL Questions And Answers](#postgresql-questions-and-answers)
+    7. [Elasticsearch Questions And Answers](#elasticsearch-questions-and-answers)
 4. [Important Commands](#important-commands)
 	1. [Linux Commands](#linux-commands)
  	2. [GitHub Commands](#github-commands)
@@ -755,6 +757,82 @@ app.get('/api/users/me', passport.authenticate('basic', { session: false }), fun
 
 ## JavaScript Questions And Answers
 
+### How to use async/await in an array?
+**Example:**
+```javascript
+(async function(tableArray) {
+	await Promise.all(arr.map(async function (tableName) {
+		scope.db.query('SELECT * FROM ' + tableName)
+		.then(function (rows) {
+			if (rows.length > 0) {
+				var bulk = utils.makeBulk(rows, tableName);
+				utils.indexall(bulk, tableName)
+				.then(function(result) {
+					console.log('success: ', result);
+				})
+				.catch(function(err) {
+					console.log('err : ', err);
+				})
+			}
+		})
+		.catch(function(err) {
+			console.log('err : ', err);
+		});
+	}));
+})(tables);
+```
+
+### Convert a Unix timestamp to time in JavaScript?
+
+**Example 1:**
+```javascript
+function getDateTimeFromTimestamp(unixTimeStamp) {
+    var date = new Date(unixTimeStamp);
+    return ('0' + date.getDate()).slice(-2) + '/' + ('0' + (date.getMonth() + 1)).slice(-2) + '/' + date.getFullYear() + ' ' + ('0' + date.getHours()).slice(-2) + ':' + ('0' + date.getMinutes()).slice(-2);
+  }
+
+var myTime = getDateTimeFromTimestamp(1435986900000);
+console.log(myTime);
+```
+**Example 2:**
+
+```javascript
+// Create a new JavaScript Date object based on the timestamp
+// multiplied by 1000 so that the argument is in milliseconds, not seconds.
+var date = new Date(unix_timestamp*1000);
+// Hours part from the timestamp
+var hours = date.getHours();
+// Minutes part from the timestamp
+var minutes = "0" + date.getMinutes();
+// Seconds part from the timestamp
+var seconds = "0" + date.getSeconds();
+
+// Will display time in 10:30:23 format
+var formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
+console.log(formattedTime);
+```
+
+**Example 3:**
+
+```javascript
+var timestamp = 1293683278;
+var date = new Date(timestamp*1000);
+var iso = date.toISOString().match(/(\d{2}:\d{2}:\d{2})/)
+alert(iso[1]);
+
+```
+
+**Example 4:**
+
+```javascript
+var timeStamp = function(str) {
+  return new Date(str.replace(/^(\d{2}\-)(\d{2}\-)(\d{4})$/,
+    '$2$1$3')).getTime();
+};
+alert(timeStamp('27-04-2015'));
+
+```
+
 ### Array reduce method?
 
 **Example:**
@@ -790,6 +868,18 @@ Where:
 * **initialValue:** A value to be passed to the function as the initial value.
 
 ## NodeJS Questions And Answers
+
+### What does npm start in NodeJS?
+npm start will run whatever you have defined for the start command of the scripts object in your package.json file.
+
+So if it looks like this:
+```JSON
+"scripts": {
+  "start": "ng serve"
+}
+```
+Then npm start will run ng serve.
+
 ### How to get clientId/clientSecret of Gmail account?
 Follow the below steps
 
@@ -912,6 +1002,9 @@ The allowed SchemaTypes are:
 
 ## AngularJS Questions And Answers
 
+### what is ng-serve?
+It serves an Angular project via a development server
+
 ### AngularJs `$http.post()` does not send data to the server?
 
 The difference is in how jQuery and AngularJS serialize and transmit the data. Fundamentally, 
@@ -955,9 +1048,144 @@ $http({
 });
 ```
 
+### Injecting a service into another service in angularJS
+
+Yes. follow the regular injection rule in angularjs.
+
+```javascript
+//Solution 1: 
+app.service('service1', function(){});
+//Inject service1 into service2
+app.service('service2',function(service1){});
+
+//Solution 2:
+app.service('service1', function(){});
+//Inject service1 into service2
+//It is better to use Array injection to avoid minifying problem.
+app.service('service2',['service1', function(service1) {}]);
+
+```
+
 ## MySQL Questions And Answers
 
 ## PostgreSQL Questions And Answers
+
+### Install pgAdmin4 on linux 16.04?
+```
+$ sudo apt-get install virtualenv python-pip libpq-dev python-dev
+$ cd
+$ virtualenv pgadmin4
+$ cd pgadmin4
+$ source bin/activate
+$ pip install https://ftp.postgresql.org/pub/pgadmin/pgadmin4/v2.1/pip/pgadmin4-2.1-py2.py3-none-any.whl
+$ nano lib/python2.7/site-packages/pgadmin4/config_local.py
+```
+Paste below code:
+```
+import os
+DATA_DIR = os.path.realpath(os.path.expanduser(u'~/.pgadmin/'))
+LOG_FILE = os.path.join(DATA_DIR, 'pgadmin4.log')
+SQLITE_PATH = os.path.join(DATA_DIR, 'pgadmin4.db')
+SESSION_DB_PATH = os.path.join(DATA_DIR, 'sessions')
+STORAGE_DIR = os.path.join(DATA_DIR, 'storage')
+SERVER_MODE = False
+```
+and save this file. Now run:
+`$ python lib/python2.7/site-packages/pgadmin4/pgAdmin4.py`
+
+Now run:
+```
+$ cd ~/pgadmin4
+$ source bin/activate
+$ python lib/python2.7/site-packages/pgadmin4/pgAdmin4.py
+```
+Now you can check postgres on: `localhost:5000`
+
+**Make a shortcut:**
+```
+$ touch ~/pgadmin4/pgadmin4
+$ chmod +x ~/pgadmin4/pgadmin4
+$ nano ~/pgadmin4/pgadmin4
+```
+Write below code:
+
+```
+#!/bin/bash
+cd ~/pgadmin4
+source bin/activate
+python lib/python2.7/site-packages/pgadmin4/pgAdmin4.py
+
+```
+and save this file.
+
+Now you can just run it with a single command:
+
+`$ ~/pgadmin4/pgadmin4`
+
+### How to change owner of database in postgres?
+`ALTER DATABASE "database_name" OWNER TO "owner_name";`
+
+**Example:**
+
+`ALTER DATABASE "ETP_test" OWNER TO root;`
+
+## Elasticsearch Questions And Answers
+
+### How to use range query in elasticsearch?
+
+```json
+body: {
+    "query": {
+    	"bool": {
+    		"must": [
+    			{
+    				"range": {
+    					"startTime": {
+    						"gte": startTime,
+    						"lte": endTime
+    					}
+    				}
+    			}
+    		],
+    		"must_not": [],
+    		"should": []
+    	}
+    },
+    "from": 0,
+    "size": 10,
+    "sort": [],
+    "aggs": {}
+}
+
+```
+
+### Multi-field search example in Elasticsearch?
+
+```json
+body: {
+    "query": {
+    	"bool": {
+    		"must": [
+    			{
+    				"term": {
+    					"status": status
+    				}
+    			},
+    			{
+    				"term": {
+    					"senderId.keyword": address
+    				}
+    			}
+    		],
+    		"must_not": [],
+    		"should": []
+    	}
+    },
+    "sort": [],
+    "aggs": {}
+}
+
+```
 
 # Important Commands
 
