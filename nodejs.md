@@ -1,12 +1,12 @@
 1. [NodeJS](#nodejs)
 	1. [Introduction](#introduction)
-    2. [Installation](#installation)
+  2. [Installation](#installation)
 2. [NodeJS Pupular Modules](#nodejs-pupular-modules)
 	* [express](#express)
     * [cookie-parser](#cookie-parser)
-    * [body--parser](#body-parser)
+    * [body-parser](#body-parser)
     * [async](#async)
-    * [socket.io](#socket-io)
+    * [socket.io](#socketio)
     * [passport](#passport)   
     * [nodemailer](#nodemailer)
     * [mysql](#mysql)
@@ -1058,7 +1058,78 @@ app.listen(8080)
 * **options** - an object that is passed to cookie.parse as the second option.
 
 ## body-parser
+
+Node.js body parsing middleware.
+
+Parse incoming request bodies in a middleware before your handlers, available under the `req.body` property.
+
+This module provides the following parsers:
+
+* JSON body parser
+* Raw body parser
+* Text body parser
+* URL-encoded form body parser
+
+### Installation
+```
+$ npm install body-parser
+```
+### API
+
+#### bodyParser.json([options])
+Returns middleware that only parses json and only looks at requests where the `Content-Type` header matches the type option.
+
+A new body object containing the parsed data is populated on the request object after the middleware (i.e. req.body).
+
+```javascript
+var bodyParser = require('body-parser');
+bodyParser.json([options]);
+```
+##### options:
+The json function takes an optional options object that may contain any of the following keys:
+
+* **inflate** - When set to `true`, then deflated (compressed) bodies will be inflated; when `false`, deflated bodies are rejected. Defaults to `true`.
+* **limit** - Controls the maximum request body size. If this is a number, then the value specifies the number of `bytes`; if it is a string, the value is passed to the bytes library for parsing. Defaults to `100kb`.
+* **reviver** - The reviver option is passed directly to `JSON.parse` as the second argument.
+* **strict** - When set to `true`, will only accept arrays and objects; when `false` will accept anything JSON.parse accepts. Defaults to `true`.
+* **type** - The `type` option is used to determine what media type the middleware will parse. This option can be a function or a string. If a string, type option is passed directly to the `type-is` library and this can be an extension name (like `json`), a mime type (like `application/json`), or a mime type with a wildcard (like `*/*` or `*/json`). If a function, the type option is called as `fn(req)` and the request is parsed if it returns a truthy value. Defaults to `application/json`.
+* **verify** - The verify option, if supplied, is called as `verify(req, res, buf, encoding)`, where `buf` is a Buffer of the raw request body and encoding is the encoding of the request. The parsing can be aborted by throwing an error.
+
+#### bodyParser.raw([options])
+
+Returns middleware that parses all bodies as a Buffer and only looks at requests where the Content-Type header matches the type option. This parser supports automatic inflation of gzip and deflate encodings.
+
+##### Options: 
+Same as `bodyParser.json([options])`
+
+#### bodyParser.text([options])
+
+Returns middleware that parses all bodies as a string and only looks at requests where the Content-Type header matches the type option. This parser supports automatic inflation of gzip and deflate encodings.
+
+##### Options: 
+* **defaultCharset** - Specify the default character set for the text content if the charset is not specified in the `Content-Type` header of the request. Defaults to `utf-8`.
+
+Rest are same as `bodyParser.json([options])`
+
+#### bodyParser.urlencoded([options])
+
+Returns middleware that only parses `urlencoded` bodies and only looks at requests where the `Content-Type` header matches the type option. This parser accepts only `UTF-8` encoding of the body and supports automatic inflation of `gzip` and `deflate` encodings.
+
+A new body object containing the parsed data is populated on the `request` object after the middleware (i.e. `req.body`). This object will contain `key-value` pairs, where the value can be a string or array (when extended is `false`), or any type (when extended is `true`).
+
+##### Options:
+
+* **extended** - 
+* **parameterLimit** - The parameterLimit option controls the maximum number of parameters that are allowed in the URL-encoded data. If a request contains more parameters than this value, a 413 will be returned to the client. Defaults to 1000.
+
 ## async
+
+Async module originally designed for [NodeJS](#nodejs) to work with asynchronous javascript.
+
+### Installation:
+```
+$ npm install async --save 
+```
 ## socket.io   
 ## passport
 ### What is passport?
