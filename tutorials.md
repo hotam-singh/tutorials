@@ -16,6 +16,7 @@
     * [body-parser](#body-parser)
     * [async](#async)
     * [socket.io](#socketio)
+    * [engine.IO](#engineio)
     * [passport](#passport)   
     * [nodemailer](#nodemailer)
     * [mysql](#mysql)
@@ -1648,6 +1649,214 @@ async.series({
 ```
 
 ## socket.io   
+Socket.IO enables real-time bidirectional event-based communication. It consists in:
+
+* a Node.js server.
+* a Javascript client library for the browser (or a Node.js client).
+
+### Features
+
+**Reliability:**
+
+Connections are established even in the presence of:
+
+* proxies and load balancers.
+* personal firewall and antivirus software.
+
+For this purpose, it relies on [engine.io](#engineio), which first establishes a long-polling connection, then tries to upgrade to better transports that are "tested" on the side, like WebSocket.
+
+**Auto-reconnection support:**
+
+Unless instructed otherwise a disconnected client will try to reconnect forever, until the server is available again. Please see the available reconnection options.
+
+**Disconnection detection:**
+
+A heartbeat mechanism is implemented at the [engine.io](#engineio) level, allowing both the server and the client to know when the other one is not responding anymore. 
+
+That functionality is achieved with timers set on both the server and the client, with timeout values (the `pingInterval` and `pingTimeout` parameters) shared during the connection handshake.
+
+**Binary support:**
+
+Any serializable data structures can be emitted, including:
+
+* `ArrayBuffer` and `Blob` in the browser
+* `ArrayBuffer` and `Buffer` in Node.js
+
+**Simple and convenient API:**
+
+Sample code:
+```javascript
+io.on('connection', function(socket){
+  socket.emit('request', /* */); // emit an event to the socket
+  io.emit('broadcast', /* */); // emit an event to all connected sockets
+  socket.on('reply', function(){ /* */ }); // listen to the event
+});
+```
+
+### Installation
+```
+$ npm install socket.io --save
+```
+
+### Using with Node http server
+Server (app.js)
+
+```javascript
+var app = require('http').createServer(handler)
+var io = require('socket.io')(app);
+var fs = require('fs');
+
+app.listen(80);
+
+function handler (req, res) {
+  fs.readFile(__dirname + '/index.html',
+  function (err, data) {
+    if (err) {
+      res.writeHead(500);
+      return res.end('Error loading index.html');
+    }
+
+    res.writeHead(200);
+    res.end(data);
+  });
+}
+
+io.on('connection', function (socket) {
+  socket.emit('news', { hello: 'world' });
+  socket.on('my other event', function (data) {
+    console.log(data);
+  });
+});
+```
+Client (index.html)
+```html
+<script src="/socket.io/socket.io.js"></script>
+<script>
+  var socket = io('http://localhost');
+  socket.on('news', function (data) {
+    console.log(data);
+    socket.emit('my other event', { my: 'data' });
+  });
+</script>
+```
+
+### Using with Express 3/4
+Server (app.js)
+
+```javascript
+var app = require('express')();
+var server = require('http').Server(app);
+var io = require('socket.io')(server);
+
+server.listen(80);
+
+app.get('/', function (req, res) {
+  res.sendfile(__dirname + '/index.html');
+});
+
+io.on('connection', function (socket) {
+  socket.emit('news', { hello: 'world' });
+  socket.on('my other event', function (data) {
+    console.log(data);
+  });
+});
+```
+
+Client (index.html)
+
+```html
+<script src="/socket.io/socket.io.js"></script>
+<script>
+  var socket = io.connect('http://localhost');
+  socket.on('news', function (data) {
+    console.log(data);
+    socket.emit('my other event', { my: 'data' });
+  });
+</script>
+```
+
+### Sending and receiving events
+Socket.IO allows you to emit and receive custom events. Besides `connect`, `message` and `disconnect`, you can emit custom events:
+
+Server
+
+```javascript
+// note, io(<port>) will create a http server for you
+var io = require('socket.io')(80);
+
+io.on('connection', function (socket) {
+  io.emit('this', { will: 'be received by everyone'});
+
+  socket.on('private message', function (from, msg) {
+    console.log('I received a private message by ', from, ' saying ', msg);
+  });
+
+  socket.on('disconnect', function () {
+    io.emit('user disconnected');
+  });
+});
+```
+### Restricting yourself to a namespace
+If you have control over all the messages and events emitted for a particular application, using the default / namespace works. If you want to leverage 3rd-party code, or produce code to share with others, socket.io provides a way of namespacing a socket.
+
+This has the benefit of multiplexing a single connection. Instead of socket.io using two WebSocket connections, it’ll use one.
+
+Server (app.js)
+
+```javascript
+var io = require('socket.io')(80);
+var chat = io
+  .of('/chat')
+  .on('connection', function (socket) {
+    socket.emit('a message', {
+        that: 'only'
+      , '/chat': 'will get'
+    });
+    chat.emit('a message', {
+        everyone: 'in'
+      , '/chat': 'will get'
+    });
+  });
+
+var news = io
+  .of('/news')
+  .on('connection', function (socket) {
+    socket.emit('item', { news: 'item' });
+  });
+```
+
+Client (index.html)
+
+```html
+<script>
+  var chat = io.connect('http://localhost/chat')
+    , news = io.connect('http://localhost/news');
+  
+  chat.on('connect', function () {
+    chat.emit('hi!');
+  });
+  
+  news.on('news', function () {
+    news.emit('woot');
+  });
+</script>
+```      
+
+### Broadcasting messages
+To broadcast, simply add a broadcast flag to emit and send method calls. Broadcasting means sending a message to everyone else except for the socket that starts it.
+
+Server
+
+```javascript
+var io = require('socket.io')(80);
+
+io.on('connection', function (socket) {
+  socket.broadcast.emit('user connected');
+});
+```
+
+## engine.io
+
 ## passport
 
 ### What is passport?
@@ -1761,6 +1970,163 @@ app.get('/api/users/me', passport.authenticate('basic', { session: false }), fun
 });
 ```
 ## nodemailer
+Nodemailer is a popular module for [NodeJS](#nodejs) applications to send email. Nodemailer is licensed under MIT license.
+
+### Installation
+```
+$ npm install nodemailer --save
+```
+
+### Features
+
+* A single module with `zero dependencies`.
+* Heavy focus on `security`.
+* `Unicode support` to use any characters, including emoji 💪
+* Use HTML content, as well as plain text.
+* Add `Attachments` to messages.
+* Embedded `image` attachments for HTML content.
+* Secure email delivery using `TLS/STARTTLS`.
+* Different transport methods in addition to the `built-in SMTP support`.
+* Sign messages with `DKIM`
+* Sane `OAuth2` authentication
+* Proxies for SMTP connections
+* `ES6 code` – no more unintentional memory leaks.
+
+### Pre Requirements
+
+Node.js v6+. That’s it.
+
+**Example:**
+```javascript
+'use strict';
+const nodemailer = require('nodemailer');
+
+// Generate test SMTP service account from ethereal.email
+// Only needed if you don't have a real mail account for testing
+nodemailer.createTestAccount((err, account) => {
+    // create reusable transporter object using the default SMTP transport
+    let transporter = nodemailer.createTransport({
+        host: 'smtp.ethereal.email',
+        port: 587,
+        secure: false, // true for 465, false for other ports
+        auth: {
+            user: account.user, // generated ethereal user
+            pass: account.pass // generated ethereal password
+        }
+    });
+
+    // setup email data with unicode symbols
+    let mailOptions = {
+        from: '"Fred Foo 👻" <foo@example.com>', // sender address
+        to: 'bar@example.com, baz@example.com', // list of receivers
+        subject: 'Hello ✔', // Subject line
+        text: 'Hello world?', // plain text body
+        html: '<b>Hello world?</b>' // html body
+    };
+
+    // send mail with defined transport object
+    transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+            return console.log(error);
+        }
+        console.log('Message sent: %s', info.messageId);
+        // Preview only available when sending through an Ethereal account
+        console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
+
+        // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
+        // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
+    });
+});
+```
+
+### Usage
+To send emails you need to follow below steps:
+#### 1. create a transporter object
+```javascript
+let transporter = nodemailer.createTransport(transport[, defaults])
+```
+Where:
+
+* **transporter** - is going to be an object that is able to send mail
+* **transport** - is the transport configuration object, connection url or a transport plugin instance
+* **defaults** - is an object that defines default values for mail options
+
+#### 2. Message Configuration
+
+The following are the possible fields of an email message:
+
+Commmon fields:
+
+* **from** - The email address of the sender. All email addresses can be plain ‘sender@server.com’ or formatted ’“Sender Name” sender@server.com‘, see Address object for details
+* **to** - Comma separated list or an array of recipients email addresses that will appear on the To: field
+* **cc** - Comma separated list or an array of recipients email addresses that will appear on the Cc: field
+* **bcc** - Comma separated list or an array of recipients email addresses that will appear on the Bcc: field
+* **subject** - The subject of the email
+* **text** - The plaintext version of the message as an Unicode string, Buffer, Stream or an attachment-like object ({path: ‘/var/data/…’})
+* **html** - The HTML version of the message as an Unicode string, Buffer, Stream or an attachment-like object ({path: ‘http://…‘})
+* **attachments** - An array of attachment objects (see Using attachments for details). Attachments can be used for embedding images as well.
+
+A large majority of emails sent look a lot like this, using only a few basic fields:
+
+```javascript
+var message = {
+    from: 'sender@server.com',
+    to: 'receiver@sender.com',
+    subject: 'Message title',
+    text: 'Plaintext version of the message',
+    html: '<p>HTML version of the message</p>'
+};
+```
+
+#### 3. Sending mail
+Once you have a transporter object you can send mail with it:
+
+```javascript
+transporter.sendMail(data[, callback])
+```
+
+Where
+
+* **data** - defines the mail content (see [Message Configuration](#message-configuration) for possible options)
+* **callback** - is an optional callback function to run once the message is delivered or it failed
+	* **err** - is the error object if message failed
+	* **info** - includes the result, the exact format depends on the transport mechanism used
+		* **info.messageId** - most transports should return the final Message-Id value used with this property
+		* **info.envelope** - includes the envelope object for the message
+		* **info.accepted** - is an array returned by SMTP transports (includes recipient addresses that were accepted by the server)
+		* **info.rejected** - is an array returned by SMTP transports (includes recipient addresses that were rejected by the server)
+		* **info.pending** - is an array returned by Direct SMTP transport. Includes recipient addresses that were temporarily rejected together with the server response
+		* **response** - is a string returned by SMTP transports and includes the last SMTP response from the server
+
+### Sending Emails Using Gmail
+
+**Example 1**
+```javascript
+var nodemailer = require('nodemailer');
+var tarnsporter = nodemailer.createTransport({
+	service: 'gmail',
+	auth: {
+		user: 'YOUR_GMAIL_ADDRESS',
+		pass: 'GMAIL_PASSWORD'
+	}
+});
+
+var mailOptions = {
+	from: 'sender@gmail.com', // sender address
+    to: 'receiver@server.com', // list of receivers
+   	subject: 'Hello', // Subject line
+   	text: 'Hello world !', // plain text body
+   	html: '<b>Hello world !</b>' // html body
+};
+
+tarnsporter.sendMail(mailOptions, function(err, info) {
+	if(err) {
+		console.log('error : '+err);
+		return;
+	}
+	console.log('mail sent successfully');
+});
+```
 ## mysql
 ## mongodb
 ## mongoose
@@ -1779,7 +2145,6 @@ app.get('/api/users/me', passport.authenticate('basic', { session: false }), fun
 ## dotenv
 ## jsonwebtoken
 ## cors
-```
 
 # Questions And Answers
 
