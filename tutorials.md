@@ -2127,6 +2127,45 @@ tarnsporter.sendMail(mailOptions, function(err, info) {
 	console.log('mail sent successfully');
 });
 ```
+
+### Sending Email Using OAuth2
+```javascript
+var nodemailer = require('nodemailer');
+
+var transporter = nodemailer.createTransport({
+    host: 'smtp.gmail.com',
+    port: 465,
+    secure: true,
+    auth: {
+        type: 'OAuth2',
+        clientId: ENV.CLIENTID,
+        clientSecret: ENV.CLIENTSECRET
+    }
+  });
+
+
+var mailOptions = {
+	from: 'sender@gmail.com', // sender address
+    to: 'reciever@gmail.com', // list of receivers
+    subject: 'Hello', // Subject line
+    text: 'Hello world ?', // plain text body
+    html: '<b>Hello world ?</b>', 
+    auth: {
+        user: 'sender@gmail.com',
+        refreshToken: ENV.REFRESHTOKEN,
+        accessToken: ENV.ACCESSTOKEN
+    }
+};
+
+transporter.sendMail(mailOptions, function(err, info) {
+	if(err) {
+		console.log('error : '+err);
+		return;
+	}
+	console.log('mail sent successfully');
+});
+```
+
 ## mysql
 ## mongodb
 ## mongoose
