@@ -2051,7 +2051,7 @@ Where:
 * **transport** - is the transport configuration object, connection url or a transport plugin instance
 * **defaults** - is an object that defines default values for mail options
 
-#### 2. Message Configuration
+#### Message Configuration
 
 The following are the possible fields of an email message:
 
@@ -2087,7 +2087,7 @@ transporter.sendMail(data[, callback])
 
 Where
 
-* **data** - defines the mail content (see [Message Configuration](#2.-message-configuration) for possible options)
+* **data** - defines the mail content (see [Message Configuration](#message-configuration) for possible options)
 * **callback** - is an optional callback function to run once the message is delivered or it failed
 	* **err** - is the error object if message failed
 	* **info** - includes the result, the exact format depends on the transport mechanism used
