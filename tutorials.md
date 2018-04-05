@@ -2167,6 +2167,289 @@ transporter.sendMail(mailOptions, function(err, info) {
 ```
 
 ## mysql
+### Introduction
+
+This is a node.js driver for mysql. It is written in JavaScript, does not require compiling, and is 100% MIT licensed.
+
+Here is an example on how to use it:
+
+```javascript
+var mysql      = require('mysql');
+var connection = mysql.createConnection({
+  host     : 'localhost',
+  user     : 'me',
+  password : 'secret',
+  database : 'my_db'
+});
+ 
+connection.connect();
+ 
+connection.query('SELECT 1 + 1 AS solution', function (error, results, fields) {
+  if (error) throw error;
+  console.log('The solution is: ', results[0].solution);
+});
+ 
+connection.end();
+```
+
+### Installation
+```
+$ npm install mysql
+```
+
+### Establishing connections
+The recommended way to establish a connection is this:
+
+```javascript
+var mysql      = require('mysql');
+var connection = mysql.createConnection({
+  host     : 'example.org',
+  user     : 'bob',
+  password : 'secret'
+});
+ 
+connection.connect(function(err) {
+  if (err) {
+    console.error('error connecting: ' + err.stack);
+    return;
+  }
+ 
+  console.log('connected as id ' + connection.threadId);
+});
+```
+
+However, a connection can also be implicitly established by invoking a query:
+
+```javascript
+var mysql      = require('mysql');
+var connection = mysql.createConnection(...);
+ 
+connection.query('SELECT 1', function (error, results, fields) {
+  if (error) throw error;
+  // connected!
+});
+```
+
+### Connection options
+
+When establishing a connection, you can set the following options:
+
+* **host:** The hostname of the database you are connecting to. (Default: localhost)
+* **port:** The port number to connect to. (Default: 3306)
+* **localAddress:** The source IP address to use for TCP connection. (Optional)
+* **socketPath:** The path to a unix domain socket to connect to. When used host and port are ignored.
+* **user:** The MySQL user to authenticate as.
+* **password:** The password of that MySQL user.
+* **database:** Name of the database to use for this connection (Optional).
+* **charset:** The charset for the connection. This is called "collation" in the SQL-level of MySQL (like utf8_general_ci). If a SQL-level charset is specified (like utf8mb4) then the default collation for that charset is used. (Default: 'UTF8_GENERAL_CI')
+* **timezone:** The timezone configured on the MySQL server. This is used to type cast server date/time values to JavaScript Date object and vice versa. This can be 'local', 'Z', or an offset in the form +HH:MM or -HH:MM. (Default: 'local')
+* **connectTimeout:** The milliseconds before a timeout occurs during the initial connection to the MySQL server. (Default: 10000)
+* **stringifyObjects:** Stringify objects instead of converting to values. See issue #501. (Default: false)
+* **insecureAuth:** Allow connecting to MySQL instances that ask for the old (insecure) authentication method. (Default: false)
+* **typeCast:** Determines if column values should be converted to native JavaScript types. (Default: true)
+* **queryFormat:** A custom query format function. See Custom format.
+* **supportBigNumbers:** When dealing with big numbers (BIGINT and DECIMAL columns) in the database, you should enable this option (Default: false).
+* **bigNumberStrings:** Enabling both supportBigNumbers and bigNumberStrings forces big numbers (BIGINT and DECIMAL columns) to be always returned as JavaScript String objects (Default: false). Enabling supportBigNumbers but leaving bigNumberStrings disabled will return big numbers as String objects only when they cannot be accurately represented with JavaScript Number objects (which happens when they exceed the [-2^53, +2^53] range), otherwise they will be returned as Number objects. This option is ignored if supportBigNumbers is disabled.
+* **dateStrings:** Force date types (TIMESTAMP, DATETIME, DATE) to be returned as strings rather then inflated into JavaScript Date objects. Can be true/false or an array of type names to keep as strings. (Default: false)
+* **debug:** Prints protocol details to stdout. Can be true/false or an array of packet type names that should be printed. (Default: false)
+* **trace:** Generates stack traces on Error to include call site of library entrance ("long stack traces"). Slight performance penalty for most calls. (Default: true)
+* **multipleStatements:** Allow multiple mysql statements per query. Be careful with this, it could increase the scope of SQL injection attacks. (Default: false)
+* **flags:** List of connection flags to use other than the default ones. It is also possible to blacklist default ones. For more information, check Connection Flags.
+* **ssl:** object with ssl parameters or a string containing name of ssl profile.
+
+In addition to passing these options as an object, you can also use a url string. For example:
+
+```javascript
+var connection = mysql.createConnection('mysql://user:pass@host/db?debug=true&charset=BIG5_CHINESE_CI&timezone=-0700');
+```
+
+### SSL Option
+
+```javascript
+var connection = mysql.createConnection({
+  host : 'localhost',
+  ssl  : {
+    ca : fs.readFileSync(__dirname + '/mysql-ca.crt')
+  }
+});
+```
+
+You can also connect to a MySQL server without properly providing the appropriate CA to trust. You should not do this.
+
+```javascript
+var connection = mysql.createConnection({
+  host : 'localhost',
+  ssl  : {
+    // DO NOT DO THIS
+    // set up your ca correctly to trust the connection
+    rejectUnauthorized: false
+  }
+});
+```
+
+### Pooling connections
+Rather than creating and managing connections one-by-one, this module also provides built-in connection pooling using mysql.createPool(config). Read more about connection pooling.
+
+Use pool directly.
+
+```javascript
+var mysql = require('mysql');
+var pool  = mysql.createPool({
+  connectionLimit : 10,
+  host            : 'example.org',
+  user            : 'bob',
+  password        : 'secret',
+  database        : 'my_db'
+});
+ 
+pool.query('SELECT 1 + 1 AS solution', function (error, results, fields) {
+  if (error) throw error;
+  console.log('The solution is: ', results[0].solution);
+});
+```
+
+Connections can be pooled to ease sharing a single connection, or managing multiple connections.
+
+```javascript
+var mysql = require('mysql');
+var pool  = mysql.createPool({
+  host     : 'example.org',
+  user     : 'bob',
+  password : 'secret',
+  database : 'my_db'
+});
+ 
+pool.getConnection(function(err, connection) {
+  // connected! (unless `err` is set)
+});
+```
+
+When you are done with a connection, just call connection.release() and the connection will return to the pool, ready to be used again by someone else.
+
+```javascript
+var mysql = require('mysql');
+var pool  = mysql.createPool(...);
+ 
+pool.getConnection(function(err, connection) {
+  // Use the connection
+  connection.query('SELECT something FROM sometable', function (error, results, fields) {
+    // And done with the connection.
+    connection.release();
+ 
+    // Handle error after the release.
+    if (error) throw error;
+ 
+    // Don't use the connection here, it has been returned to the pool.
+  });
+});
+```
+
+If you would like to close the connection and remove it from the pool, use connection.destroy() instead. The pool will create a new connection the next time one is needed.
+
+### Pool events
+
+#### acquire
+
+The pool will emit an acquire event when a connection is acquired from the pool. This is called after all acquiring activity has been performed on the connection, right before the connection is handed to the callback of the acquiring code.
+```javascript
+pool.on('acquire', function (connection) {
+  console.log('Connection %d acquired', connection.threadId);
+});
+```
+
+
+#### connection
+The pool will emit a connection event when a new connection is made within the pool. If you need to set session variables on the connection before it gets used, you can listen to the connection event.
+
+```javascript
+pool.on('connection', function (connection) {
+  connection.query('SET SESSION auto_increment_increment=1')
+});
+```
+
+#### enqueue
+The pool will emit an enqueue event when a callback has been queued to wait for an available connection.
+
+```javascript
+pool.on('enqueue', function () {
+  console.log('Waiting for available connection slot');
+});
+```
+
+### release
+The pool will emit a release event when a connection is released back to the pool. This is called after all release activity has been performed on the connection, so the connection will be listed as free at the time of the event.
+
+```javascript
+pool.on('release', function (connection) {
+  console.log('Connection %d released', connection.threadId);
+});
+```
+
+### Performing queries
+
+The most basic way to perform a query is to call the `.query()` method on an object (like a Connection, Pool, or PoolNamespace instance).
+
+The simplest form of `.query()` is `.query(sqlString, callback)`, where a SQL string is the first argument and the second is a callback:
+
+```javascript
+connection.query('SELECT * FROM `books` WHERE `author` = "David"', function (error, results, fields) {
+  // error will be an Error if one occurred during the query
+  // results will contain the results of the query
+  // fields will contain information about the returned results fields (if any)
+});
+```
+
+The second form `.query(sqlString, values, callback)` comes when using placeholder values (see escaping query values):
+
+```javascript
+connection.query('SELECT * FROM `books` WHERE `author` = ?', ['David'], function (error, results, fields) {
+  // error will be an Error if one occurred during the query
+  // results will contain the results of the query
+  // fields will contain information about the returned results fields (if any)
+});
+```
+
+The third form `.query(options, callback)` comes when using various advanced options on the query, like escaping query values, joins with overlapping column names, timeouts, and type casting.
+
+```javascript
+connection.query({
+  sql: 'SELECT * FROM `books` WHERE `author` = ?',
+  timeout: 40000, // 40s
+  values: ['David']
+}, function (error, results, fields) {
+  // error will be an Error if one occurred during the query
+  // results will contain the results of the query
+  // fields will contain information about the returned results fields (if any)
+});
+```
+
+Note that a combination of the second and third forms can be used where the placeholder values are passed as an argument and not in the options object. The values argument will override the values in the option object.
+
+```javascript
+connection.query({
+    sql: 'SELECT * FROM `books` WHERE `author` = ?',
+    timeout: 40000, // 40s
+  },
+  ['David'],
+  function (error, results, fields) {
+    // error will be an Error if one occurred during the query
+    // results will contain the results of the query
+    // fields will contain information about the returned results fields (if any)
+  });
+```
+
+### Preparing Queries
+
+You can use `mysql.format` to prepare a query with multiple insertion points, utilizing the proper escaping for ids and values. A simple example of this follows:
+
+```javascript
+var sql = "SELECT * FROM ?? WHERE ?? = ?";
+var inserts = ['users', 'id', userId];
+sql = mysql.format(sql, inserts);
+```
+
+Following this you then have a valid, escaped query that you can then send to the database safely. This is useful if you are looking to prepare the query before actually sending it to the database. As `mysql.format` is exposed from `SqlString.format` you also have the option (but are not required) to pass in stringifyObject and timezone, allowing you provide a custom means of turning objects into strings, as well as a location-specific/timezone-aware Date.
+
 ## mongodb
 ## mongoose
 ## lodash
