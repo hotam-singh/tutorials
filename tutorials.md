@@ -1,6 +1,8 @@
 1. [NodeJS](#nodejs)
 	1. [What is nodejs](#what-is-nodejs)
-    1. [What is v8](#what-is-v8)
+    2. [What is v8](#what-is-v8)
+    3. [What nodejs is not](#what-nodejs-is-not)
+    4. [Who has developed nodejs](#who-has-developed-nodejs)
 	2. [NodeJS Pupular Modules](#nodejs-pupular-modules)
     	* [express](#express)
     	* [cookie-parser](#cookie-parser)
@@ -64,15 +66,15 @@ V8 is Google’s open-source high-performance javascript engine written in c++ a
 * **SpiderMonkey** used by `Mozzila`
 * **JavaScriptCore** used by `Apple`
 
-## What Node.js is not?
+## What nodejs is not?
 * Node.js is not a JavaScript library, but it is a platform to execute JavaScript on server side.
 * Node.js programs are written in JavaScript but there is no DOM manipulation provided by Node.js.
 
-## Who has developed Node.js?
+## Who has developed nodejs?
 Node.js was developed by `Ryan Dahl` and other developers working at `Joyent`. It was first released in 2009
 supporting only Linux. In 2011, windows version was released.
 
-## Why Node.js?
+## Why nodejs?
 **Open Source:** Node.js is open source, so it’s free to use and no need to pay for license. There are also many open
 source modules supported by Node.js.
 
@@ -88,7 +90,7 @@ which helps you to improve your application performance.
 * In Horizontal scaling you can add more nodes to your existing system.
 * In Vertical scaling you can add more resources to a single node.
 
-## What are the limitations of Node.js?
+## What are the limitations of nodejs?
 There are following limitations of Node.js:
 
 * It doesn’t support multi-threaded programming.
@@ -141,7 +143,7 @@ You can test pretty much any Node.js/JavaScript expression in REPL. For example,
 
 The REPL feature of Node is very useful in experimenting with Node.js codes and to debug JavaScript codes.
 
-## What is npm?
+## what is npm?
 Npm stands for node package manager. It has main 2 functions.
 
 * Online repositories for Node.js package/modules
@@ -240,7 +242,7 @@ Following companies are using Node.js for their development:
 * Strong Loop
 * Dropbox
 
-## What is Event Loop. How it works?
+## What is event loop?
 
 
 Node.js is a single-threaded application, but it can support concurrency via the concept of event and callbacks. These events and callbacks are handled by event loop.
@@ -271,7 +273,7 @@ fs.readFile('text.txt', 'utf8', function (err, data) { //callback function
 });
 ```
 
-## What is callback-hell?
+## What is callback hell?
 Callback hell is a nested callbacks. It leads to some confusion and difficult-to-read code when nested callbacks are very deep.
 
 **For Example:**
@@ -289,7 +291,7 @@ Callback hell is a nested callbacks. It leads to some confusion and difficult-to
     }); 
 ```
 
-## How to avoid callback-hell?
+## How to avoid callback hell?
 We can avoid callback hell with the following methods: 
 
 * Async/await (A NodeJS Library)
@@ -625,7 +627,7 @@ Each type of Stream is an **EventEmitter** instance and throws several events at
 
 **finish** − This event is fired when all the data has been flushed to underlying system.
 
-## What are evets & event emitters?
+## What are evets and event emitters?
 
 ### Event:
 
@@ -710,7 +712,7 @@ eventEmitter.emit('error', new Error('whoops!'));
 // Prints: whoops! there was an error
 ```
 
-## How to create an Http Server using Node.js?
+## How to create HTTP server using nodejs?
 Node.js is best for developing HTTP based application. http module is used to create an http server.
 
 ```javascript
@@ -723,7 +725,7 @@ http.createServer(function(req,res){
 console.log("Server is running at http://localhost:8081");
 ```
 
-## What are Node.js Http module limitations?
+## What are nodejs HTTP module limitations?
 Node.js http module has following limitations:
 
 * No cookies handling or parsing.
@@ -731,7 +733,7 @@ Node.js http module has following limitations:
 * No built-in routing supp.
 * No static file serving.
 
-## What are middleware in node.js?
+## What are middlewares in nodejs?
 Middleware are the functions that are invoked by the Express routing layer before your final request handler is made. Express invokes all the middleware functions each time when client makes a request. 
 
 ### Types of middlewares:
