@@ -1,73 +1,49 @@
-1. [Tutorials](#tutorials)
-	1. [JavaScript](#javascript)
-    2. [NodeJS](#nodejs)
-       * [Introduction](#introduction)
-       * [Installation](#installation)
-    3. [MongoDB](#mongodb)
-    4. [AngularJS](#angularjs)
-    5. [MySQL](#mysql)
-    6. [PostgreSQL](#postgresql)
-    7. [Elasticsearch](#Elasticsearch)
-    8. [NodeJS With MongoDB](#nodejs-with-mongodb)
-    9. [NodeJS With MySQL](#nodejs-with-mysql)
-2. [NodeJS Pupular Modules](#nodejs-pupular-modules)
-    * [express](#express)
-    * [cookie-parser](#cookie-parser)
-    * [body-parser](#body-parser)
-    * [async](#async)
-    * [socket.io](#socketio)
-    * [engine.IO](#engineio)
-    * [passport](#passport)   
-    * [nodemailer](#nodemailer)
-    * [mysql](#mysql)
-    * [mongodb](#mongodb)
-    * [mongoose](#mongoose)
-    * [lodash](#Lodash)
-    * [request](#request)
-    * [chalk](#chalk)
-    * [bluebird](#bluebird)
-    * [commander](#commander)
-    * [moment](#moment)
-    * [fs](#fs)
-    * [q](#q)
-    * [winston](#winston)
-    * [redis](#redis)
-    * [handlebars](#handlebars)
-    * [ejs](#ejs)
-    * [dotenv](#dotenv)
-    * [jsonwebtoken](#jsonwebtoken)
-    * [cors](#cors)  
-3. [Questions And Answers](#questions-and-answers)    
-	1. [JavaScript Questions And Answers](#javascript-questions-and-answers)
-    2. [NodeJS Questions And Answers](#nodejs-questions-and-answers)
-    3. [MongoDB Questions And Answers](#mongodb-questions-and-answers)
-    4. [AngularJS Questions And Answers](#angularjs-questions-and-answers)
-    5. [MySQL Questions And Answers](#mysql-questions-and-answers)
-    6. [PostgreSQL Questions And Answers](#postgresql-questions-and-answers)
-    7. [Elasticsearch Questions And Answers](#elasticsearch-questions-and-answers)
-4. [Important Commands](#important-commands)
-	1. [Linux Commands](#linux-commands)
- 	2. [GitHub Commands](#github-commands)
-    3. [NodeJS Commands](#nodejs-commands)
-    4. [NPM Commands](#npm-commands)
-    5. [MySQL Commands](#mysal-commands)
-    6. [PostgresQL Commands](#postgresql-commands)
-    7. [MongoDB Commands](#mongodb-commands)
-    8. [Elasticsearch Commands](#elasticsearch-commands)
-# Tutorials
+1. [NodeJS](#nodejs)
+	1. [What is nodejs?](#What-is-nodejs?)
+	2. [NodeJS Pupular Modules](#nodejs-pupular-modules)
+    	* [express](#express)
+    	* [cookie-parser](#cookie-parser)
+    	* [body-parser](#body-parser)
+    	* [async](#async)
+    	* [socket.io](#socketio)
+    	* [engine.IO](#engineio)
+    	* [passport](#passport)   
+    	* [nodemailer](#nodemailer)
+    	* [mysql](#mysql)
+    	* [mongodb](#mongodb)
+    	* [mongoose](#mongoose)
+    	* [lodash](#Lodash)
+    	* [request](#request)
+    	* [chalk](#chalk)
+    	* [bluebird](#bluebird)
+    	* [commander](#commander)
+    	* [moment](#moment)
+    	* [fs](#fs)
+    	* [q](#q)
+    	* [winston](#winston)
+    	* [swagger](#swagger)
+    	* [redis](#redis)
+    	* [handlebars](#handlebars)
+    	* [ejs](#ejs)
+    	* [dotenv](#dotenv)
+    	* [jsonwebtoken](#jsonwebtoken)
+    	* [cors](#cors) 
+2. [MongoDB](#mongodb)
+3. [AngularJS](#angularjs)
+4. [JavaScript](#javascript)
+5. [MySQL](#mysql)
+6. [PostgreSQL](#postgresql)
+7. [Elasticsearch](#Elasticsearch)
 
-## JavaScript
 
-## NodeJS
+# NodeJS
 
-## Introduction
-
-### What is nodejs?
+## What is nodejs?
 Node.js is a javascript runtime built on chrome’s V8 engine for building fast scalable network application. Node.js uses an event driven, non-blocking I/O model that makes it lightweight and efficient. 
 
 Node.js is basically a library and a runtime environment that allows us to execute javascript on the server.
 
-### What is V8?
+## What is V8?
 
 V8 is Google’s open-source high-performance javascript engine written in c++ and implements ES5.
 
@@ -87,15 +63,15 @@ V8 is Google’s open-source high-performance javascript engine written in c++ a
 * **SpiderMonkey** used by `Mozzila`
 * **JavaScriptCore** used by `Apple`
 
-### What Node.js is not?
+## What Node.js is not?
 * Node.js is not a JavaScript library, but it is a platform to execute JavaScript on server side.
 * Node.js programs are written in JavaScript but there is no DOM manipulation provided by Node.js.
 
-### Who has developed Node.js?
+## Who has developed Node.js?
 Node.js was developed by `Ryan Dahl` and other developers working at `Joyent`. It was first released in 2009
 supporting only Linux. In 2011, windows version was released.
 
-### Why Node.js?
+## Why Node.js?
 **Open Source:** Node.js is open source, so it’s free to use and no need to pay for license. There are also many open
 source modules supported by Node.js.
 
@@ -111,7 +87,7 @@ which helps you to improve your application performance.
 * In Horizontal scaling you can add more nodes to your existing system.
 * In Vertical scaling you can add more resources to a single node.
 
-### What are the limitations of Node.js?
+## What are the limitations of Node.js?
 There are following limitations of Node.js:
 
 * It doesn’t support multi-threaded programming.
@@ -147,7 +123,7 @@ To compile and install native addons from npm you may also need to install build
 
 `$ sudo apt-get install -y build-essential`
 
-### what is REPL?
+## what is REPL?
 Node.js comes with virtual environment called REPL(Node shell). REPL stands for Read-Eval-Print-Loop. It is an interface to run your JavaScript code and see the results..
 
 You can test pretty much any Node.js/JavaScript expression in REPL. For example, if your write `10 + 20` then it will display result `30` immediately in new line.
@@ -164,7 +140,7 @@ You can test pretty much any Node.js/JavaScript expression in REPL. For example,
 
 The REPL feature of Node is very useful in experimenting with Node.js codes and to debug JavaScript codes.
 
-### What is npm?
+## What is npm?
 Npm stands for node package manager. It has main 2 functions.
 
 * Online repositories for Node.js package/modules
@@ -183,7 +159,7 @@ See Image:
 
 ![NPM Version](https://github.com/hotam-singh/tutorials/blob/master/images/node9.png)
 
-#### Install Modules Using NPM
+### Install Modules Using NPM
 
 `$ npm install <module_name>`
 
@@ -191,21 +167,21 @@ See Image:
 
 `$ npm install express`
 
-#### Install Modules Listed in Package.json
+### Install Modules Listed in Package.json
 
 `$ npm install`
 
 It will install all modules present in `package.json` file
 
-#### Uninstall a Module
+### Uninstall a Module
 
 `$ npm uninstall <module_name_to_be_uninstalled>`
 
-#### Update a Module
+### Update a Module
 
 `$ npm update <module_name_to_be_updated>`
 
-### How Node.js work?
+## How Node.js work?
 
 Traditional Web Server
 
@@ -215,7 +191,7 @@ Node.js Process Model:
 
 ![NodeJS Process Model](https://github.com/hotam-singh/tutorials/blob/master/images/node_2.png)
 
-### Explain Node.js Architecture?
+## Explain Node.js Architecture?
 Node.js has mainly two types of components – core components and node.js API (modules). The core
 components are written in C and C++, and node.js API are written in JavaScript. Diagram for Node.js architecture
 is given below:
@@ -248,7 +224,7 @@ verify etc.
 
 **Zlib:** – It is a C library for data compression and decompression.
 
-### Who are using Node.js for their development?
+## Who are using Node.js for their development?
 Following companies are using Node.js for their development:
 
 * Walmart
@@ -263,7 +239,7 @@ Following companies are using Node.js for their development:
 * Strong Loop
 * Dropbox
 
-### What is Event Loop. How it works?
+## What is Event Loop. How it works?
 
 
 Node.js is a single-threaded application, but it can support concurrency via the concept of event and callbacks. These events and callbacks are handled by event loop.
@@ -274,15 +250,15 @@ Event Loop: It has main 2 functionalities
 
 ![Event Loop](https://github.com/hotam-singh/tutorials/blob/master/images/node_3.png)
 
-#### Call Stack: 
+### Call Stack: 
 Call Stack is only the javascript runtime on server where javascript is run.
 #### Web APIs:
 Web APIs are those handlers which makes async programming possible. Web APIs are basically callbacks that return response once completed the given task.
 
-#### Callback Queue:
+### Callback Queue:
 callback queue is a queue where all callbacks are queued up. Event loop process tasks from this queue.
 
-### What is callback?
+## What is callback?
 A callback is an anonimous function which passed as an argument to an asynchronous function, that describes what
 to do after the asynchronous operation has completed. Callbacks are used frequently in node.js development.
 
@@ -294,7 +270,7 @@ fs.readFile('text.txt', 'utf8', function (err, data) { //callback function
 });
 ```
 
-### What is callback-hell?
+## What is callback-hell?
 Callback hell is a nested callbacks. It leads to some confusion and difficult-to-read code when nested callbacks are very deep.
 
 **For Example:**
@@ -312,7 +288,7 @@ Callback hell is a nested callbacks. It leads to some confusion and difficult-to
     }); 
 ```
 
-### How to avoid callback-hell?
+## How to avoid callback-hell?
 We can avoid callback hell with the following methods: 
 
 * Async/await (A NodeJS Library)
@@ -390,7 +366,7 @@ promise.race([cleanRoom, removeGarbage, winIcecream]).then(function() {
 	console.log('one of the task finished');
 });
 ```
-### What Are Buffer?
+## What Are Buffer?
 
 **Official Definition:**
 
@@ -416,10 +392,10 @@ A typical example where you could see buffer in action is when you’re streamin
 
 But if your connection is slow, after processing the first set of data that arrived, the video player will display a loading icon, or display the text “buffering”, which means gathering more data, or waiting for more data to arrive. And when the buffer is filled up and processed, the player shows the data, the video. While playing that, more data will continue to arrive and wait in the buffer.
 
-#### Where You See Buffers:
+### Where You See Buffers:
 In the wild, buffers are usually seen in the context of binary data coming from streams, such as `fs.createReadStream`.
 
-#### Usage:
+### Usage:
 There are a few ways to create new buffers:
 ```
 var buffer = new Buffer(8);
@@ -441,7 +417,7 @@ This initializes the buffer to a binary encoding of the first string as specifie
 * **base64:** Base64 string encoding.
 * **binary:** This is the "binary string" format mentioned earlier, and is in the process of being deprecated. Avoid its use.
 
-#### Writing to Buffers:
+### Writing to Buffers:
 Given that there is already a buffer created:
 ```
 > var buffer = new Buffer(16);
@@ -461,7 +437,7 @@ The first argument to `buffer.write` is the string to write to the buffer, and t
 ```
 When `buffer.write` has 3 arguments, the second argument indicates an offset, or the index of the buffer to start writing at.
 
-#### Reading from Buffers:
+### Reading from Buffers:
 
 **toString:**
 
@@ -476,7 +452,7 @@ Again, the first argument is the encoding. In this case, it can be seen that not
 'Hello world!'
 ```
 
-#### Buffers Methods:
+### Buffers Methods:
 
 **Buffer.isBuffer(object)**
 
@@ -534,13 +510,13 @@ This method's API is generally the same as that of Array.prototype.slice, but wi
 'Happy birthday! ___'
 ```
 
-### What are Streams?
+## What are Streams?
 
 Stream in Node.js simply means a sequence of data being moved from one point to the other over time. The whole concept is, you have a huge amount of data to process, but you don’t need to wait for all the data to be available before you start processing it.
 
 Basically, this big data is broken down and sent in chunks. So from the original definition of a buffer (“streams of binary data… in the context of… file system”) this simply means binary data being moved in the file system. For example, moving the texts stored in file1.txt to file2.txt.
 
-#### Types of Streams:
+### Types of Streams:
 There are four fundamental stream types within Node.js:
 
 * **Readable** - streams from which data can be read (example: `fs.createReadStream()`).
@@ -648,13 +624,13 @@ Each type of Stream is an **EventEmitter** instance and throws several events at
 
 **finish** − This event is fired when all the data has been flushed to underlying system.
 
-### What are evets & event emitters?
+## What are evets & event emitters?
 
-#### Event:
+### Event:
 
 Node.js allows us to create and handle custom events easily by using `events` module. Event module includes EventEmitter class which can be used to raise and handle custom events.
 
-#### Event Emitters:
+### Event Emitters:
 In NodeJs, any object that emits an event is an instance of the EventEmitter class which exposes 2 important functionalities:
 
 * The ability to trigger events using eventEmitter.emit(someEvent, optionalData)
@@ -710,7 +686,7 @@ em.emit('SecondEvent', 'This is my second Node.js event emitter example.');
 
 ```
 
-#### Handling events only once:
+### Handling events only once:
 ```javascript
 const eventEmitter = new EventEmitter();
 let m = 0;
@@ -723,7 +699,7 @@ eventEmitter.emit('event');
 // Ignored
 ```
 
-#### Error Events:
+### Error Events:
 ```javascript
 const eventEmitter = new EventEmitter();
 eventEmitter.on('error', (err) => {
@@ -733,7 +709,7 @@ eventEmitter.emit('error', new Error('whoops!'));
 // Prints: whoops! there was an error
 ```
 
-### How to create an Http Server using Node.js?
+## How to create an Http Server using Node.js?
 Node.js is best for developing HTTP based application. http module is used to create an http server.
 
 ```javascript
@@ -746,7 +722,7 @@ http.createServer(function(req,res){
 console.log("Server is running at http://localhost:8081");
 ```
 
-### What are Node.js Http module limitations?
+## What are Node.js Http module limitations?
 Node.js http module has following limitations:
 
 * No cookies handling or parsing.
@@ -754,10 +730,10 @@ Node.js http module has following limitations:
 * No built-in routing supp.
 * No static file serving.
 
-### What are middleware in node.js?
+## What are middleware in node.js?
 Middleware are the functions that are invoked by the Express routing layer before your final request handler is made. Express invokes all the middleware functions each time when client makes a request. 
 
-#### Types of middlewares:
+### Types of middlewares:
 
 * Application-level middleware
 ```javascript
@@ -819,7 +795,7 @@ var cookieParser = require('cookie-parser')
 // load the cookie-parsing middleware
 app.use(cookieParser())
 ```
-### What is the difference between exports and module.exports?
+## What is the difference between exports and module.exports?
 
 Whenever we require any module from one file. By default it returns `module.exports` object that is the reference to that module. Both `exports` and `module.exports` helps to create function or access function in another module.
 
@@ -856,261 +832,8 @@ exports.name = function() {
 
 }
 ```
-
-## MongoDB
-
-### What is mongoDB?
-MongoDB is an open source document database that provides `high performance`, `high availability` and `automatic scaling`. Document database is a data structure composed of `key` and `value` pairs. MongoDB documents are similar to `JSON` objects.
-
-![BSON Docement](https://github.com/hotam-singh/tutorials/blob/master/images/mongo1.png)
-
-### What do you understand by NoSQL databases?
-NoSQL is a type of database that can handle and sort all type of unstructured, messy and complicated data. It is just a new way to think about database.
-
-### Which are the different languages supported by MongoDB?
-MongoDB provides official driver support for C, C++, C#, Java, Node.js, Perl, PHP, Python, Ruby, Scala, Go and Erlang.
-
-### What are the different types of NoSQL databases? Give some example.
-NoSQL database can be classified as 4 basic types:
-
-1. Key value store NoSQL database
-2. Document store NoSQL database
-3. Column store NoSQL database
-4. Graph base NoSQL databse
-
-### What is the difference between MongoDB and MySQL?
-MongoDB and MySQL can be compared with the following terms
-
-| Area Of Comparison | MongoDB | MySQL |
-| ------------------ |:-------:| -----:|
-| Data Representation | BSON | Tables |
-| Query | Object Oriented | SQL |
-| JOIN | Does not support | Supports |
-| Automatic Transaction |Does not support | Supports |
-| Schema Definition | You are not responsible for defining schema | This is your responsible to definine schema |
-|Performance | It is better than MySQL | It is slower than MongoDB |
-| Easy for Programmers | Yes | No |
-| Complex Transactions | No | Yes |
-| Auto-Sharding | Yes | No |
-
-### Why MongoDB is known as best NoSQL database?
-MongoDb is the best NoSQL database because, it:
-
-1. is `Document Oriented`
-2. Supports `Rich Query language`
-3. provides `High Performance`
-4. is `Highly Available`(Replica sets provide high availability using automatic failover. Failover allows a secondary member to become primary if the current primary becomes unavailable.)
-5. is `Easily Scalable`
-
-### Can you achieve primary key - foreign key relationships in MongoDB?
-We can achieve primary-foreign key relationship by embedding one document inside another. **For example:** An address document can be embedded inside customer document.
-
-### What are Indexes in MongoDB?
-In MondoDB, Indexes are used to execute query efficiently. Without indexes, MongoDB must perform a collection scan, i.e. scan every document in a collection, to select those documents that match the query statement. If an appropriate index exists for a query, MongoDB can use the index to limit the number of documents it must inspect
-
-### What is aggregation?
-Aggregation is like an operation that groups values from multiple documents together, and can perform a variety of operations on the grouped data to return a single result.
-
-MongoDB provides three ways to perform aggregation: 
-
-1. aggregation pipeline
-2. map-reduce function
-3. single purpose aggregation methods
-
-#### Aggregation Pipeline: 
-The aggregation pipeline is a framework for data aggregation modeled on the concept of data processing pipelines. Documents enter a multi-stage pipeline that transforms the documents into aggregated results.
-
-![Aggregation Example](https://github.com/hotam-singh/tutorials/blob/master/images/mongo2.png)
-
-#### Map-Reduce:
-MongoDB also provides map-reduce operations to perform aggregation. In general, map-reduce operations have two phases: a map stage that processes each document and emits one or more objects for each input document, and reduce phase that combines the output of the map operation. Optionally, map-reduce can have a finalize stage to make final modifications to the result. Like other aggregation operations, map-reduce can specify a query condition to select the input documents as well as sort and limit the results.
-
-Map-reduce uses custom JavaScript functions to perform the map and reduce operations, as well as the optional finalize operation. While the custom JavaScript provide great flexibility compared to the aggregation pipeline, in general, map-reduce is less efficient and more complex than the aggregation pipeline.
-
-Map-reduce can operate on a sharded collection. Map reduce operations can also output to a sharded collection. See Aggregation Pipeline and Sharded Collections and Map-Reduce and Sharded Collections for details.
-
-![Map Reduce Example](https://github.com/hotam-singh/tutorials/blob/master/images/mongo3.png)
-
-#### Single Purpose Aggregation Operations:
-MongoDB also provides `db.collection.count()` and `db.collection.distinct()`
-
-![Single Purpose Aggregation](https://github.com/hotam-singh/tutorials/blob/master/images/mongo4.png)
-
-### What is sharding in MongoDB?
-In MongoDB, Sharding is a procedure of storing data records across multiple machines. It is a MongoDB approach to meet the demands of data growth. It creates horizontal partition of data in a database or search engine. Each partition is referred as shard or database shard.
-
-### What is replica set in MongoDB?
-A replica can be specified as a group of mongo instances that host the same data set. In a replica set, one node is primary, and another is secondary. All data is replicated from primary to secondary nodes.
-
-### What is primary and secondary replica set in MongoDB?
-In MongoDB
-
-* primary nodes are the node that can accept write. These are also known as master nodes. The replication in MongoDB is single master so, only one node can accept write operations at a time.
-* Secondary nodes are known as slave nodes. These are read only nodes that replicate from the primary.
-
-### Which are the storage engines used by MongoDB?
-`MMAPv1` and `WiredTiger` are two storage engine used by MongoDB
-
-### SQL to Aggregation mapping chart?
-
-![SQL to Aggregation mapping chart](https://github.com/hotam-singh/tutorials/blob/master/images/mongo5.png)
-
-**Count Example:**
-![Count Example](https://github.com/hotam-singh/tutorials/blob/master/images/mongo6.png)
-
-**Sum Example:**
-![Sum Example](https://github.com/hotam-singh/tutorials/blob/master/images/mongo7.png)
-
-**Groupby and Orderby Example:**
-![Groupby and Orderby Example](https://github.com/hotam-singh/tutorials/blob/master/images/mongo8.png)
-![Groupby and Orderby Example](https://github.com/hotam-singh/tutorials/blob/master/images/mongo9.png)
-
-## AngularJS
-
-What is a service?
-
-* It provides us method to keep data across the lifetime of the angular app
-* It provides us method to communicate data across the controllers in a consistent way
-* This is a singleton object and it gets instantiated only once per application
-* It is used to organize and share data and functions across the application
-
-Angular only creates instance of a service when an application component depends on it. Keep in mind that services are singleton object and gets instantiated once per angular app using the `$injector` and they gets created when angular app components need them.
-
-**Example:**
-
-service to find square of a number:
-```javascript
-var CalculatorService = angular.module('CalculatorService', [])
-.service('Calculator', function () {
-	this.square = function (a) { return a*a};
-});
-```
-
-An AngularJS service can be created or registered or created using the following different ways:
-
-* Using the service() method
-* Using the factory() method
-* Using the provider() method
-* Using the value() method
-* Using the constant() method
-
-### What are directives?
-
-#### ng-src:
-**Example:**
-
-index.html:
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>NG-SRC Demo</title>
-    <script src="./angular.min.js"></script>
-    <script src="./angular-route.js"></script>
-    <script src="./script.js"></script>
-</head>
-<body ng-app="myApp">
-    <div ng-controller="myController">
-        <div>
-            <h2><label>Name:</label>{{ country.name }}</h2>
-        </div>
-        <div>
-            <h2><label>Capital:</label>{{ country.capital }}</h2>
-        </div>
-        <div>
-            <img ng-src="{{ country.flag }}" alt="Indian Flag" heigth="200px;" width="400px;" />
-        </div>
-        
-    </div>
-</body>
-</html>
-```
-script.js:
-```javascript
-var myApp = angular.module('myApp', [])
-
-.controller('myController', function($scope) {
-    $scope.country = {
-        name: "India",
-        capital: "New Delhi",
-        flag: "./indian_flag.png"
-    };
-});
-```
-
-## MySQL
-
-## PostgreSQL
-
-### What is PostgreSQL?
-PostgreSQL is an open-source, object-relational database management system (ORDBMS).
-
-PostgreSQL is developed by the `PostgreSQL Global Development Group`.
-
-It is released under the PostgreSQL License, which is an MIT-style license, 
-and thus free and open source software.
-
-PostgreSQL features highlights?
-
-* User-defined types
-* Table inheritance
-* Sophisticated locking mechanism
-* Foreign key referential integrity
-* Nested transactions (savepoints)
-* Multi-version concurrency control (MVCC)
-* Asynchronous replication
-
-The recent versions of PostgreSQL support the following features:
-
-* Native Microsoft Windows Server version
-* Tablespaces
-* Point-in-time recovery
-
-## NodeJS with MongoDB
-### What are efficient ways to use mongodb in nodejs application?
-* Use global instance of db
-```javascript
-var db =  mongodb.connect('MongoDB connection URL'); 
-var app = express();
-app.set('db', db);
-```
-* Attach db using middleware
-```javascript
-var db =  mongodb.connect('MongoDB connection URL');
-app.use(function(req, res, next) {
-	req.db = db;
-})
-```
-* Reuse db object created by MongoClient.connect()
-```javascript
-use this line in a module where required:
-MongoClient.connect('MongoDB connection URL')
-```
-
-## NodeJS With MySQL 
-
-### How can I prevent SQL injection Node.JS?
-We can prevent sql-injection by parameter binding:
-
-**Example:**
-```javascript
-var userId = 5; 
-connection.query("SELECT * FROM table WHERE userid = '" + userId + "'", function(error) { 
-	if (error) throw error; 
-});
-
-//We can modify above query as:
-var userId = 5; 
-var sql =  'SELECT * FROM users WHERE id = ?';
-var query = connection.query(sql, [userId], function(err, results) { //query.sql returns SELECT * FROM users WHERE id = '5' 
-	if (err) throw error;
-});
-```
-
 # NodeJS Pupular Modules
+
 ## express
 Express is a web framework for NodeJS.
 
@@ -2768,25 +2491,1386 @@ MongoClient.connect(url, function(err, client) {
 ```
 
 ## mongoose
-## lodash
-## request
-## chalk
+
+Mongoose is a MongoDB object modeling tool designed to work in an asynchronous environment.
+
+### Documentation
+
+[mongoosejs.com](http://mongoosejs.com/)
+
+### Importing mongoose
+```javascript
+// Using Node.js `require()`
+const mongoose = require('mongoose');
+ 
+// Using ES6 imports
+import mongoose from 'mongoose';
+```
+
+### Installation
+First install node.js and mongodb. Then:
+
+```
+$ npm install mongoose
+```
+
+### Connecting to MongoDB
+First, we need to define a connection. If your app uses only one database, you should use `mongoose.connect`. If you need to create additional connections, use `mongoose.createConnection`.
+
+Both `connect` and `createConnection` take a mongodb:// URI, or the parameters host, database, port, options.
+
+```javascript
+//Importing mongoose
+const mongoose = require('mongoose');
+
+//Connect to MongoDB
+mongoose.connect('mongodb://localhost/my_database');
+```
+
+
+Once connected, the `open` event is fired on the `Connection` instance. If you're using `mongoose.connect`, the Connection is `mongoose.connection`. Otherwise, `mongoose.createConnection` return value is a `Connection`.
+
+**Note:** If the local connection fails then try using `127.0.0.1` instead of `localhost`. Sometimes issues may arise when the local hostname has been changed.
+
+**Important!** - Mongoose buffers all the commands until it's connected to the database. This means that you don't have to wait until it connects to MongoDB in order to define models, run queries, etc.
+
+### Defining a Model
+Models are defined through the `Schema` interface.
+
+```javascript
+const Schema = mongoose.Schema,
+    ObjectId = Schema.ObjectId;
+ 
+const BlogPost = new Schema({
+ author: ObjectId,
+ title: String,
+ body: String,
+ date: Date
+});
+```
+The following example shows some of these features:
+```javascript
+const Comment = new Schema({
+  name: { type: String, default: 'hahaha' },
+  age: { type: Number, min: 18, index: true },
+  bio: { type: String, match: /[a-z]/ },
+  date: { type: Date, default: Date.now },
+  buff: Buffer
+});
+ 
+// a setter
+Comment.path('name').set(function (v) {
+  return capitalize(v);
+});
+ 
+// middleware
+Comment.pre('save', function (next) {
+  notify(this.get('email'));
+  next();
+});
+```
+### Embedded Documents
+```javascript
+// retrieve my model
+var BlogPost = mongoose.model('BlogPost');
+ 
+// create a blog post
+var post = new BlogPost();
+ 
+// create a comment
+post.comments.push({ title: 'My comment' });
+ 
+post.save(function (err) {
+  if (!err) console.log('Success!');
+});
+```
+The same goes for removing them:
+```javascript
+BlogPost.findById(myId, function (err, post) {
+  if (!err) {
+    post.comments[0].remove();
+    post.save(function (err) {
+      // do something
+    });
+  }
+});
+```
+**Example:**
+
+```javascript
+//import mongoose module
+var mongoose = require('mongoose');
+
+//connect to mongodb
+mongoose.connect('mongodb://127.0.0.1:27017/test');
+
+//checking connection with mongodb
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+
+db.on('open', function(err) {
+	console.log('database connected');
+});
+
+//Defining schema
+var Schema = mongoose.Schema;
+
+var userData = new Schema({
+	name: {type: String},
+	address: String,
+	mob: String,
+	dob : {type: Date, default: Date.now}
+});
+
+userData.methods.printName = function() {
+	console.log('my name is : '+this.name);
+};
+
+var newModel = mongoose.model('users', userData);
+var newModel1 = new newModel({name : "hhhhh"});
+newModel1.printName();
+
+var user = new newModel({
+	name: "Hotam",
+	address: "Agra",
+	mob: "9856234710",
+	dob : '15/04/1991'
+	
+});
+
+newModel.find({}, function(err, docs) {
+	if(err) {
+		console.log('data not found error : '+ err)
+		throw err;
+	}else if(docs.length) {
+		console.log('user data : '+docs);
+	}else {
+		user.save(function(err) {
+			if(err) {
+				console.log('error : '+err);
+				throw err;
+			}
+			console.log('user data is saved');
+		});
+	}
+});
+```
+
 ## bluebird
-## commander
+## q
 ## moment
 ## fs
-## q
 ## winston
+
+### Instantiating your own Logger
+
+```javascript
+var logger = new winston.Logger({
+    transports: [
+        new (winston.transports.Console)(),     //It will display the log on console
+        new (winston.transports.File)({ filename: 'logs/winston_own.log' })      //It will display log in a file named winston_own.log
+    ]
+});
+logger.remove(winston.transports.Console);      //It will remove console transport to write logs on the console
+logger.log('info', 'Hello distributed log files!');
+logger.info('Hello again distributed logs');
+```
+
+**Example**
+```javascript
+//import winston module
+var winston = require('winston')
+
+//Define custom log levels and colors
+const myCustomLevels = {
+  levels: {
+    foo: 0,
+    bar: 1,
+    baz: 2,
+    foobar: 3
+  },
+  colors: {
+    foo: 'blue',
+    bar: 'green',
+    baz: 'yellow',
+    foobar: 'red'
+  }
+};
+
+//custom logger
+const customLevelLogger = new (winston.Logger)({
+  level: 'foobar',
+  levels: myCustomLevels.levels,
+  transports: [
+    new winston.transports.Console()
+  ]
+});
+
+customLevelLogger.foobar('some foobar level-ed message');
+customLevelLogger.baz('some baz level-ed message');
+customLevelLogger.bar('some bar level-ed message');
+customLevelLogger.foo('some foo level-ed message');
+```
+
+### Add/Remove transport
+
+```javascript
+//By default, only the Console transport is set on the default logger. 
+//You can add or remove transports via the add() and remove() methods:
+
+winston.add(winston.transports.File, { filename: 'logs/winston_default.log' });      //It will write log into a file named winston_default.log
+winston.remove(winston.transports.Console);     //It will enable console not to display log message on console.
+```
+### Daily rotate your log file
+```javascript
+require('winston-daily-rotate-file');
+var options = {
+    filename: 'logs/./log',
+    datePattern: 'yyyy-MM-dd.',
+    prepend: true,
+    json: false,
+    handleExceptions: true,     //if true, Catch Unhandled Exceptions
+    humanReadableUnhandledException: true,      //Unhandled Exceptions in more redable form
+    level: process.env.ENV === 'development' ? 'debug' : 'info',
+    exitOnError: false      //By default winston will exit if any uncaught exception occurrs. Set this option to false to work winston properly.
+}
+var transport = new winston.transports.DailyRotateFile(options)
+var dailyLogger = new winston.Logger({
+    transports: [
+        transport
+    ]
+});
+
+dailyLogger.log('info', 'Hello distributed log files!');
+dailyLogger.info('Hello again distributed logs');
+```
+
+**Example**
+
+```javascript
+var winston = require('winston');
+require('winston-daily-rotate-file');
+
+var transport = new (winston.transports.DailyRotateFile)({
+  filename: './log',
+  datePattern: 'yyyy-MM-dd.',
+  prepend: true,
+  json: false,
+  level: process.env.ENV === 'development' ? 'debug' : 'info'
+});
+
+var errorTransport = new (winston.transports.DailyRotateFile)({
+    filename: '_ERROR./log',
+    datePattern: 'yyyy-MM-dd.',
+    prepend: true,
+    json: false,
+    level: process.env.ENV === 'development' ? 'debug' : 'error'
+  });
+
+var logger = new (winston.Logger)({
+  transports: [
+    transport,
+    errorTransport
+  ]
+});
+
+module.exports = logger;
+```
+### Multiple transports of the same type
+
+```javascript
+var multipleTransportsLogger = new winston.Logger({
+  transports: [
+    new (winston.transports.File)({
+      name: 'info-file',
+      filename: 'logs/filelog_info.log',
+      level: 'info'
+    }),
+    new (winston.transports.File)({
+      name: 'error-file',
+      filename: 'logs/filelog_error.log',
+      level: 'error'
+    }),
+  ],
+  exceptionHandlers: [
+    new winston.transports.File({ filename: 'logs/exceptions.log' })
+  ]
+});
+
+multipleTransportsLogger.log('info', 'Hello distributed log files!');
+multipleTransportsLogger.log('error', 'Hello again distributed logs');
+```
+
+### Exception Handler using winston
+```javascript
+var winston = require('winston');
+
+var logger = new (winston.Logger)({
+  transports: [
+    new (winston.transports.Console)({ json: false, timestamp: true }),  // logs printed on console
+    new winston.transports.File({ filename: __dirname + '/debug.log', json: false })  // logs printed on debug.log file
+  ],
+  exceptionHandlers: [
+    new (winston.transports.Console)({ json: false, timestamp: true }), // logs printed on console
+    new winston.transports.File({ filename: __dirname + '/exceptions.log', json: false })  // logs printed on exceptions.log file
+  ],
+  exitOnError: false // if true, it will exit on an erorr
+});
+
+module.exports = logger;
+```
+
+### Add colors to custom logger
+```javascript
+var winston = require('winston');
+var myCustomLevels = {
+    levels: {
+        info: 0,
+        error: 1,
+        warn: 2
+    },
+    colors: {
+        info: 'red',
+        error: 'green',
+        warn: 'yellow'
+    }
+};
+
+var transport = new (winston.transports.Console)({
+    levels: myCustomLevels.levels,
+    prettyPrint: false,
+    colorize: true,
+    silent: false,
+    timestamp: false
+});
+
+var fileTransport = new (winston.transports.File)({
+    levels: myCustomLevels.levels,
+    filename: 'logs/custom_file_logger.log',
+    prepend: true,
+    json: false,
+    prettyPrint: false,
+    colorize: true,
+    silent: false,
+    timestamp: false
+});
+
+winston.addColors(myCustomLevels.colors);
+var customLogger = new winston.Logger({
+    transports: [
+        transport,
+        fileTransport
+    ]
+});
+
+
+customLogger.info('I will be printed in red color');
+customLogger.error('I will be printed in green color');
+customLogger.warn('I will be printed in yellow color');
+```
+
+## swagger
+
+### Set up to application
+```javascript
+var subpath = express();
+var swagger = require("swagger-node-express");
+app.use("/v1", subpath);
+swagger.setAppHandler(subpath);
+subpath.use(express.static('dist'));
+swagger.setApiInfo({
+    title: "example API",
+    description: "API to do something, manage something...",
+    termsOfServiceUrl: "",
+    contact: "hotam.singh@oodlestechnologies.com",
+    license: "",
+    licenseUrl: ""
+});
+subpath.get('/', function (req, res) {
+    res.sendFile(__dirname + '/dist/index.html');
+});
+swagger.configureSwaggerPaths('', 'api-docs', '');
+var domain = scope.config.swaggerDomain || 'localhost';
+var applicationUrl = 'http://' + domain;
+swagger.configure(applicationUrl, '1.0.0');
+```
 ## redis
+Redis is a fast and efficient in-memory key-value store. It is also known as a data structure server, as the keys can contain strings, lists, sets, hashes and other data structures.
+
+### Installation
+```
+npm install redis
+```
+
+### Getting Started
+Once you have installed node_redis module you are good to go. Let’s create a simple file, `app.js`, and see how to connect with Redis from Node.js.
+
+app.js
+
+```javascript
+
+
+var redis = require('redis');
+var client = redis.createClient(); //creates a new client
+```
+By default, `redis.createClient()` will use `127.0.0.1` and `6379` as the hostname and port respectively. If you have a different `host/port` you can supply them as following:
+```javascript
+var client = redis.createClient(port, host);
+```
+### Storing Key-Value Pairs
+#### Storing Strings:
+All the Redis commands are exposed as different functions on the client object. To store a simple string use the following syntax:
+```javascript
+client.set('framework', 'AngularJS');
+```
+Or
+```javascript
+client.set(['framework', 'AngularJS']);
+```
+You can also pass an optional callback to get a notification when the operation is complete:
+```javascript
+client.set('framework', 'AngularJS', function(err, reply) {
+  console.log(reply);
+});
+```
+
+If the operation failed for some reason, the `err` argument to the callback represents the error. To retrieve the value of the key do the following:
+```javascript
+client.get('framework', function(err, reply) {
+    console.log(reply); //null if not exists
+});
+```
+
+`client.get()` lets you retrieve a key stored in Redis. The value of the key can be accessed via the callback argument reply. If the key doesn’t exist, the value of reply will be empty.
+
+#### Storing Hash:
+
+Many times storing simple values won’t solve your problem. You will need to store hashes (objects) in Redis. For that you can use `hmset()` function as following:
+
+```javascript
+client.hmset('frameworks', 'javascript', 'AngularJS', 'css', 'Bootstrap', 'node', 'Express');
+
+client.hgetall('frameworks', function(err, object) {
+    console.log(object);
+});
+```
+
+The above snippet stores a `hash` in Redis that maps each technology to its framework. The first argument to `hmset()` is the name of the key. Subsequent arguments represent key-value pairs. Similarly, `hgetall()` is used to retrieve the value of the key. If the key is found, the second argument to the callback will contain the value which is an object.
+
+**Note:** - Redis doesn’t support nested objects. All the property values in the object will be coerced into strings before getting stored.
+
+You can also use the following syntax to store objects in Redis:
+```javascript
+client.hmset('frameworks', {
+    'javascript': 'AngularJS',
+    'css': 'Bootstrap',
+    'node': 'Express'
+});
+```
+
+#### Storing Sets:
+Sets are similar to lists, but the difference is that they don’t allow duplicates. So, if you don’t want any duplicate elements in your list you can use a set.
+
+```javascript
+client.sadd(['tags', 'angularjs', 'backbonejs', 'emberjs'], function(err, reply) {
+    console.log(reply); // 3
+});
+```
+As you can see, the `sadd()` function creates a new set with the specified elements. Here, the length of the set is three. To retrieve the members of the set, use the `smembers()` function as following:
+
+```javascript
+client.smembers('tags', function(err, reply) {
+    console.log(reply);
+});
+```
+
+This snippet will retrieve all the members of the set. Just note that the order is not preserved while retrieving the members.
+
+### Checking the Existence of Keys
+Sometimes you may need to check if a key already exists and proceed accordingly. To do so you can use `exists()` function as shown below:
+```javascript
+client.exists('key', function(err, reply) {
+    if (reply === 1) {
+        console.log('exists');
+    } else {
+        console.log('doesn\'t exist');
+    }
+});
+```
+
+### Deleting a Key
+At times you will need to clear some keys and reinitialize them. To clear the keys, you can use del command as shown below:
+
+```javascript
+client.del('frameworks', function(err, reply) {
+    console.log(reply); //returns 1 if successfull otherwise 0
+});
+```
+### Expire a Key
+You can also give an expiration time to an existing key as following:
+```javascript
+client.set('key1', 'val1');
+client.expire('key1', 30); //this key will automatically expire in 30 seconds
+```
+
 ## handlebars
 ## ejs
 ## dotenv
 ## jsonwebtoken
 ## cors
+## commander
+## node-cron
+**Example: Run cron job every minute**
+```javascript
+var cron = require('node-cron');
+cron.schedule('* * * * *', function () { // * * * * * runs cron job every minute
+    var dbTables = [
+        'blocks',
+        'dapps',
+        'delegates',
+        'mem_accounts',
+        'migrations',
+        'rounds_fees',
+        'trs',
+        'votes',
+        'signatures',
+        'stake_orders',
+        'peers',
+        'peers_dapp',
+        'intransfer',
+        'outtransfer',
+        'multisignatures'
+    ];
+    dbTables.forEach(function (tableName) {
+        scope.db.query('SELECT * FROM ' + tableName)
+            .then(function (rows) {
+                if (rows.length > 0) {
+                    var bulk = utils.makeBulk(rows, tableName);
+                    utils.indexall(bulk, tableName)
+                        .then(function (result) {
+                            //Handle further operation in case of successfull indexing if needed
+                        })
+                        .catch(function (err) {
+                            console.log('elasticsearch error : ', err);
+                        });
+                }
+            })
+            .catch(function (err) {
+                console.log('database error : ', err);
+            });
+    });
+});
+```
+## appmetrics
+
+**Example: Monitor app using appmetrics**
+```javascript
+var appmetrics = require('appmetrics');
+var monitoring = appmetrics.monitor();
+
+const chalk = require('chalk');
+ 
+var http = require('http');
+ 
+const port = 3800;
+
+const pg = require('pg-promise')({});
+const connectionString = process.env.DATABASE_URL || 'postgres://localhost:5432/lisk_main';
+const client = pg(connectionString);
+//const client = new pg.Client(connectionString);
+client.connect();
+//const query = client.query('CREATE TABLE items(id SERIAL PRIMARY KEY, text VARCHAR(40) not null, complete BOOLEAN)');
+
+  client.query('select * from items', function(err, data) {
+      if(err) {
+          console.log('error : '+err);
+      }
+      else {
+          console.log('data : '+data);
+      }
+  });
+//query.on('end', () => { client.end(); });
+
+monitoring.on('initialized', function (env) {
+    console.log(chalk.yellow('[ETPCoinMetric] init'));
+});
+monitoring.on('http', function (data) {
+    console.log(chalk.yellow('[ETPCoinMetric] duration='+data.duration+' ms url='+data.url));
+});
+monitoring.on('postgres', function (data) {
+    console.log(chalk.yellow('[ETPCoinMetric] duration='+data.duration+' ms query='+JSON.stringify(data.query)));
+});
+ 
+const requestHandler = (request, response) => {  
+  response.end('Hello')
+}
+ 
+const server = http.createServer(requestHandler);
+ 
+server.listen(port, (err) => {  
+  if (err) {
+    return console.log('An error occurred', err)
+  }
+  console.log(`Server is listening on ${port}`)
+});
+```
+## NodeJS Questions And Answers
+
+### How to process an array using async/await?
+```javascript
+var Promise = require('bluebird');
+
+async function processArray(arr) {
+    await Promise.all(arr.map(async function(tableName) {
+        console.log(tableName);
+    }));
+}
+
+processArray([1, 2, 3, 4, 5]);
+```
+
+### How to detect device type in nodejs?
+```javascript
+'use strict';
+
+var express = require('express');
+var device = require('express-device');
+var app = express();
+app.use(device.capture());
+
+app.get('/api/device', function(req, res) {
+    res.send('device : ' + req.device.type.toUpperCase());
+});
+
+app.listen('8081', function() {
+    console.log('server started on port : 8081');
+});
+```
+
+### What does npm start in NodeJS?
+npm start will run whatever you have defined for the start command of the scripts object in your package.json file.
+
+So if it looks like this:
+```JSON
+"scripts": {
+  "start": "ng serve"
+}
+```
+Then npm start will run ng serve.
+
+### How to get clientId/clientSecret of Gmail account?
+Follow the below steps
+
+* Register your Application at Google APIs Console. [click here to register your app]('https://console.developers.google.com/') and create a new project if you don't have and go to API Access & Services Page. see below image: 
+
+![Image Reference](https://drive.google.com/uc?export=view&id=1lomvGQJJkVNVEMykVNTeNjjgjr-5hvMg)
+
+* Click on `OAuth Consent Screeen` and write any product name of your choice and save it. 
+  
+  **For Example:**
+  
+  ![Image Reference](https://drive.google.com/uc?export=view&id=1lAbQpko8IJI2WxHhpJ9dISjUZ-0eLXhz)
+
+* Now Select `create cridentials` and select `Oauth Client Id`. Here, when 
+  you create a client ID, [Set this URL](https://developers.google.com/oauthplayground) into the text 
+  box for Redirect URIs.
+  
+  See below image for reference:
+   
+  ![Image Reference](https://drive.google.com/uc?export=view&id=13SMyNiZGq4kONRtz_pxq0UjhVEb4ZWWq)
+ 
+
+* You must be obtained your client ID & client secret.
+
+* Open Google OAuth2.0 Playground. [Click here]('https://developers.google.com/oauthplayground') to open Google OAuth2.0 Playground Page and click the gear button on the right-top. 
+
+  see reference image:
+
+  ![Image Reference](https://drive.google.com/uc?export=view&id=1GTKRV9Ixe1O3R_aPRyyn_dzaKBcQef0L)
+
+* Set your `clientId` & `clientSecret` that obtained on step 3, and set 
+ `Access token location` to `Authorization header w/ Bearer prefix`. Once done, close it.
+
+* **Set up and authorize API:** Select an API from the scope list and click `Authorize API`.
+  
+  See reference image:
+  ![Image Reference](https://drive.google.com/uc?export=view&id=1LBi32eUprrnGUUycc4bgIJk9RqdMgNNa)
+
+* **Obtain the `refresh token`**: After OAuth2.0 authorization, click `Exchange authorization code for tokens` button. You will get your refresh token.
+
+See reference image:
+
+![Image Reference](https://drive.google.com/uc?export=view&id=1NXO7RZFijpRBNTGLHWJ_ITlweT7gHRdp)
+
+* You must obtain `refresh token` and `access Token`.
+
+### How to prevent `GET /favicon.ico` in express application?
+
+Browsers will by default try to request `/favicon.ico` from the root of a hostname, in order to show an icon in the browser tab.
+
+If you want to avoid this request returning a 404, you can either:
+
+* Supply a favicon.ico file that is available at the root of your site.
+* Use a module such as serve-favicon to point requests to a specific file.
+* Catch the favicon.ico request and send a 204(No Content status):
+```javascript
+app.get('/favicon.ico', function(req, res) {
+    res.snedStatus(204);
+});
+```
+
+### How to clone github project including submodules?
+
+You can use this command to clone your repo with all the submodules:
+```
+git clone --recursive YOUR-GIT-REPO-URL
+```
+Or if you have already cloned the project, you can use:
+```
+git submodule init
+git submodule update
+```
+
+### How to check whether `path_string` is a file or directory?
+```javascript
+fs.lstatSync(path_string).isDirectory(); //returns true if path_string is a directory. 
+fs.lstatSync(path_string).isFile(); //returns true if path_string is a file.
+```
+
+### How to set custom favicon in Express?
+
+Install the `favicon` middleware and then do:
+```javascript
+var favicon = require('serve-favicon');
+
+app.use(favicon(__dirname + '/public/images/favicon.ico'));
+
+//Or better, using the path module:
+app.use(favicon(path.join(__dirname,'public','images','favicon.ico')));
+```
+# Important Commands
+
+## Linux Commands
+
+### check ubuntu version
+`$ lsb_release -a`
+
+### Change password for a user in ubuntu
+`$ passwd`
+
+### access to the root directories
+```
+$ sudo -H /bin/bash 
+$ cd /etc/apt
+do your editing of files
+exit
+```
+### create a soft link
+`$ sudo ln -fs /home/hotam/project/git/QA-automation /etc/automation`
+
+### Check Permissions For A Directory or File in linux
+`$ ls -la /root or <any directory here>`
+
+### edit `/etc/environment` directory
+`$ sudo -H gedit /etc/environment`
+
+### create hard link in linux
+`$ ln {source} {link}`
+
+### Enable wifi
+`$ sudo service network-manager restart`
+
+### get wi-fi configuration
+`$ iwconfig`
+
+### Get all info and cause of issue in a txt file.
+`$ wget -N -t 5 -T 10 https://github.com/UbuntuForums/wireless-info/raw/master/wireless-info && chmod +x wireless-info && ./wireless-info`
+
+### BIOS status for bluetooth and wi-fi
+```
+$ rfkill list
+$ sudo rfkill unblock all
+```
+
+### Install cryptkeeper on ubuntu
+```
+$ sudo apt-get update
+$ sudo apt-get install cryptkeeper
+```
+
+## GitHub Commands
+
+### Fiest commit on GitHub
+```
+$ echo "# elasticsearch_with_node" >> README.md
+$ git init
+$ git add .
+$ git add README.md //optional
+$ git commit -m "first commit"
+$ git remote add origin https://github.com/hotam-singh/<repository_name>.git
+$ git push -u origin master
+```
+### Ignore config.json before commiting.
+```
+$ git update-index --assume-unchanged <file>
+
+//Example:
+$ git update-index --assume-unchanged config.json
+```
+###  Re-commit config.json before commiting.
+```
+$ git update-index --no-assume-unchanged <file>
+
+//Example:
+$ git update-index --no-assume-unchanged config.json
+```
+### Check Permissions For A Directory or File in linux
+```
+ls -la /root
+```
+## NodeJS Commands
+
+### install node.js in ubuntu
+```
+$ sudo apt-get update
+$ sudo apt-get install nodejs
+$ nodejs -v
+```
+
+### install npm in ubuntu
+```
+$ sudo apt-get install npm
+$ npm -v
+```
+
+### replace nodejs with node
+```
+$ ln -s /usr/bin/nodejs /usr/bin/node OR sudo ln -s /usr/bin/nodejs /usr/bin/node
+$ nodejs -v
+$ node -v
+```
+
+### upgrade node to the latest version
+```
+$ sudo npm cache clean -f
+$ sudo npm install -g n
+$ sudo n stable
+$ node -v
+```
+
+### Updating node modules inside package.json
+```
+$ sudo npm install -g npm-check-updates
+$ ncu
+$ ncu –u
+$ npm install
+```
+
+### Stop running process
+```
+$ killall node
+$ ps -ef|grep node
+```
+
+### To get any application already running on specific port which we are trying to connect to
+`$ sudo lsof -i -P -n | grep LISTEN`
+
+### Killing Node Process Running In Backend solution: 1
+`$ pkill -f node`
+
+### Killing Node Process Running In Backend solution: 2
+```
+$ ps aux | grep node
+$ kill -9 process_id
+```
+
+## NPM Commands
+
+### update npm to latest version 
+`$ sudo npm i -g npm`
+
+## MySQL Commands
+
+### Install mysql on ubuntu
+```
+$ sudo apt-get update
+$ sudo apt-get install mysql-server
+
+// Run security script. It will allow you to set default security settings.
+$ mysql_secure_installation
+```
+
+### connect to mysql database
+`$ mysql -u root -p`
+
+### change mysql password if forgot
+```
+$ sudo /etc/init.d/mysql stop
+$ sudo mysqld --skip-grant-tables & mysql -u root mysql
+$ UPDATE mysql.user SET Password=PASSWORD('YOURNEWPASSWORD') WHERE User='root'; FLUSH PRIVILEGES; exit;
+```
+
+### To verify my mysql installed or not on ubuntu
+`$ dpkg --get-selections | grep mysql`
+
+### run mysql on beta server
+`$ mysql -hbetadb.websitetoolbox.com -uhotam -p`
+
+### Check version of MYSQL
+`$ SELECT VERSION(); after login into mysql shell`
+
+### dump data from database
+```
+$ mysqldump -h <hostname> -u <user> --password=<password> <databasename> > filename.sql   in your terminal
+Example:
+$ mysqldump -h localhost -u root --password=902819 test > test.sql
+```
+### dump data into database
+```
+$ mysqldump -h <hostname> -u <user> --password=<password> <databasename> < filename.sql   in your terminal
+Example:
+$ mysqldump -h localhost -u root --password=902819 test < test.sql
+```
+
+### create database
+`$ create database <database_namee>;`
+
+
+### drop database
+`$ drop database <datanase_name>;`
+
+## PostgresQL Commands
+
+### postgres database commands
+```
+$ sudo service postgresql restart
+$ dropdb ETP_test
+$ createdb ETP_test
+$ sudo -u postgres psql -d ETP_test -c "alter user "$USER" with password 'password';"
+```
+
+### Running postgres database 
+```
+$ sudo -u postgres psql
+$ \list or \l      //List all databases
+$ \connect database_name or \c databse_name     //Connect to listed databases
+$ \dt     //List Database Tables
+```
+
+### Creating dump file of existing data in postgres
+`$ pg_dump -U $USER -W -d database_name > ETPDump_file  //-W=password, -d=dump`
+
+### Create dump file of existing database schema in pstgres
+`$ pg_dump -U $USER -W -Cs ETP_test > ETPDump  //-W=password -Cs=create schema`
+
+### Back up single table from a database
+`$ pg_dump --host localhost --port 5432 -U $USER --format plain --verbose --file "file_name_here" --table public.<table_name_here> <database_name_here>`
+
+### Check version of PostgreSQL
+`SELECT VERSION(); after login into postgres shell`
+
+### dump data into database
+```
+$ psql <database_name> < filename
+Example:
+$ psql dump < psqldump
+```
+
+### dump data from database
+```
+$ pg_dump <database_name> > filename
+Example:
+$ pg_dump puppies > psqldump
+```
+
+## MongoDB Commands
+ 	
+### check mongodb version
+In mongo shell:
+
+`db.version()`
+
+### dump data to mongodb
+`$ mongoimport -d <database name> -c <collection name> --type <file type> <path to a file> --headerline`
+
+### dump database from mongodb
+`$ mongoexport --db <datanase_name> --collection <collection_name> --out filename.json/filename.csv`
+
+## Elasticsearch Commands
+
+### Elastic Search server Configuration on production server
+```
+//After installation process, run below command to give permissions to elasticsearch directory
+$ sudo chown -R elasticsearch:elasticsearch /var/lib/elasticsearch/
+```
+
+### Edit configuration of elasticsearch
+```
+//etc/elasticsearch/elasticsearch.yml file
+$ sudo nano /etc/elasticsearch/elasticsearch.yml
+```
+
+### Restart elastic search server when any modification is made in /etc/elasticsearrch/elasticsearch.yml
+```
+$ sudo service elasticsearch restart
+$ sudo /etc/init.d/elasticsearch start
+```
+
+### Get the status of elasticsearch server status
+```
+$ sudo service elasticsearch status 
+// OR 
+$ curl -X GET 'http://<server_ip_address>:9200'
+```
+
+
+
+	1. [JavaScript](#javascript)
+    2. [NodeJS](#nodejs)
+       * [Introduction](#introduction)
+       * [Installation](#installation)
+    3. [MongoDB](#mongodb)
+    4. [AngularJS](#angularjs)
+    5. [MySQL](#mysql)
+    6. [PostgreSQL](#postgresql)
+    7. [Elasticsearch](#Elasticsearch)
+    8. [NodeJS With MongoDB](#nodejs-with-mongodb)
+    9. [NodeJS With MySQL](#nodejs-with-mysql)
+ 
+3. [Questions And Answers](#questions-and-answers)    
+	1. [JavaScript Questions And Answers](#javascript-questions-and-answers)
+    2. [NodeJS Questions And Answers](#nodejs-questions-and-answers)
+    3. [MongoDB Questions And Answers](#mongodb-questions-and-answers)
+    4. [AngularJS Questions And Answers](#angularjs-questions-and-answers)
+    5. [MySQL Questions And Answers](#mysql-questions-and-answers)
+    6. [PostgreSQL Questions And Answers](#postgresql-questions-and-answers)
+    7. [Elasticsearch Questions And Answers](#elasticsearch-questions-and-answers)
+4. [Important Commands](#important-commands)
+	1. [Linux Commands](#linux-commands)
+ 	2. [GitHub Commands](#github-commands)
+    3. [NodeJS Commands](#nodejs-commands)
+    4. [NPM Commands](#npm-commands)
+    5. [MySQL Commands](#mysal-commands)
+    6. [PostgresQL Commands](#postgresql-commands)
+    7. [MongoDB Commands](#mongodb-commands)
+    8. [Elasticsearch Commands](#elasticsearch-commands)
+
+
+
+## MongoDB
+
+### What is mongoDB?
+MongoDB is an open source document database that provides `high performance`, `high availability` and `automatic scaling`. Document database is a data structure composed of `key` and `value` pairs. MongoDB documents are similar to `JSON` objects.
+
+![BSON Docement](https://github.com/hotam-singh/tutorials/blob/master/images/mongo1.png)
+
+### What do you understand by NoSQL databases?
+NoSQL is a type of database that can handle and sort all type of unstructured, messy and complicated data. It is just a new way to think about database.
+
+### Which are the different languages supported by MongoDB?
+MongoDB provides official driver support for C, C++, C#, Java, Node.js, Perl, PHP, Python, Ruby, Scala, Go and Erlang.
+
+### What are the different types of NoSQL databases? Give some example.
+NoSQL database can be classified as 4 basic types:
+
+1. Key value store NoSQL database
+2. Document store NoSQL database
+3. Column store NoSQL database
+4. Graph base NoSQL databse
+
+### What is the difference between MongoDB and MySQL?
+MongoDB and MySQL can be compared with the following terms
+
+| Area Of Comparison | MongoDB | MySQL |
+| ------------------ |:-------:| -----:|
+| Data Representation | BSON | Tables |
+| Query | Object Oriented | SQL |
+| JOIN | Does not support | Supports |
+| Automatic Transaction |Does not support | Supports |
+| Schema Definition | You are not responsible for defining schema | This is your responsible to definine schema |
+|Performance | It is better than MySQL | It is slower than MongoDB |
+| Easy for Programmers | Yes | No |
+| Complex Transactions | No | Yes |
+| Auto-Sharding | Yes | No |
+
+### Why MongoDB is known as best NoSQL database?
+MongoDb is the best NoSQL database because, it:
+
+1. is `Document Oriented`
+2. Supports `Rich Query language`
+3. provides `High Performance`
+4. is `Highly Available`(Replica sets provide high availability using automatic failover. Failover allows a secondary member to become primary if the current primary becomes unavailable.)
+5. is `Easily Scalable`
+
+### Can you achieve primary key - foreign key relationships in MongoDB?
+We can achieve primary-foreign key relationship by embedding one document inside another. **For example:** An address document can be embedded inside customer document.
+
+### What are Indexes in MongoDB?
+In MondoDB, Indexes are used to execute query efficiently. Without indexes, MongoDB must perform a collection scan, i.e. scan every document in a collection, to select those documents that match the query statement. If an appropriate index exists for a query, MongoDB can use the index to limit the number of documents it must inspect
+
+### What is aggregation?
+Aggregation is like an operation that groups values from multiple documents together, and can perform a variety of operations on the grouped data to return a single result.
+
+MongoDB provides three ways to perform aggregation: 
+
+1. aggregation pipeline
+2. map-reduce function
+3. single purpose aggregation methods
+
+#### Aggregation Pipeline: 
+The aggregation pipeline is a framework for data aggregation modeled on the concept of data processing pipelines. Documents enter a multi-stage pipeline that transforms the documents into aggregated results.
+
+![Aggregation Example](https://github.com/hotam-singh/tutorials/blob/master/images/mongo2.png)
+
+#### Map-Reduce:
+MongoDB also provides map-reduce operations to perform aggregation. In general, map-reduce operations have two phases: a map stage that processes each document and emits one or more objects for each input document, and reduce phase that combines the output of the map operation. Optionally, map-reduce can have a finalize stage to make final modifications to the result. Like other aggregation operations, map-reduce can specify a query condition to select the input documents as well as sort and limit the results.
+
+Map-reduce uses custom JavaScript functions to perform the map and reduce operations, as well as the optional finalize operation. While the custom JavaScript provide great flexibility compared to the aggregation pipeline, in general, map-reduce is less efficient and more complex than the aggregation pipeline.
+
+Map-reduce can operate on a sharded collection. Map reduce operations can also output to a sharded collection. See Aggregation Pipeline and Sharded Collections and Map-Reduce and Sharded Collections for details.
+
+![Map Reduce Example](https://github.com/hotam-singh/tutorials/blob/master/images/mongo3.png)
+
+#### Single Purpose Aggregation Operations:
+MongoDB also provides `db.collection.count()` and `db.collection.distinct()`
+
+![Single Purpose Aggregation](https://github.com/hotam-singh/tutorials/blob/master/images/mongo4.png)
+
+**Aggregation Example:**
+```javascript
+var mongodb = require('mongodb');
+var mongoClient = mongodb.MongoClient;
+mongoClient.connect('mongodb://127.0.0.1:27017/test', function(err, db) {
+        if(err) {
+                console.log('error : '+err);
+                throw err;
+        }
+        db.collection('employees').find({}).toArray(function(err, data) {
+                console.log('length : '+data.length);
+                if(err) {
+                        console.log('error : '+err);
+                        throw err;
+                }
+                if(data.length > 0) {
+                        db.collection('employees').aggregate([
+                                {
+                                        $group: {
+                                                "_id": "$name",
+                                                "total": {
+                                                        $sum: '$salary'
+                                                }
+                                        }
+                                }
+                        ], function(err, result) {
+                                console.log('aggregation result : '+JSON.stringify(result));
+                        });
+                }else {
+                        console.log('collection doesnt have any documents. Please insert documents');
+                }
+        });
+});
+```
+
+### What is sharding in MongoDB?
+In MongoDB, Sharding is a procedure of storing data records across multiple machines. It is a MongoDB approach to meet the demands of data growth. It creates horizontal partition of data in a database or search engine. Each partition is referred as shard or database shard.
+
+### What is replica set in MongoDB?
+A replica can be specified as a group of mongo instances that host the same data set. In a replica set, one node is primary, and another is secondary. All data is replicated from primary to secondary nodes.
+
+### What is primary and secondary replica set in MongoDB?
+In MongoDB
+
+* primary nodes are the node that can accept write. These are also known as master nodes. The replication in MongoDB is single master so, only one node can accept write operations at a time.
+* Secondary nodes are known as slave nodes. These are read only nodes that replicate from the primary.
+
+### Which are the storage engines used by MongoDB?
+`MMAPv1` and `WiredTiger` are two storage engine used by MongoDB
+
+### SQL to Aggregation mapping chart?
+
+![SQL to Aggregation mapping chart](https://github.com/hotam-singh/tutorials/blob/master/images/mongo5.png)
+
+**Count Example:**
+![Count Example](https://github.com/hotam-singh/tutorials/blob/master/images/mongo6.png)
+
+**Sum Example:**
+![Sum Example](https://github.com/hotam-singh/tutorials/blob/master/images/mongo7.png)
+
+**Groupby and Orderby Example:**
+![Groupby and Orderby Example](https://github.com/hotam-singh/tutorials/blob/master/images/mongo8.png)
+![Groupby and Orderby Example](https://github.com/hotam-singh/tutorials/blob/master/images/mongo9.png)
+
+## AngularJS
+
+What is a service?
+
+* It provides us method to keep data across the lifetime of the angular app
+* It provides us method to communicate data across the controllers in a consistent way
+* This is a singleton object and it gets instantiated only once per application
+* It is used to organize and share data and functions across the application
+
+Angular only creates instance of a service when an application component depends on it. Keep in mind that services are singleton object and gets instantiated once per angular app using the `$injector` and they gets created when angular app components need them.
+
+**Example:**
+
+service to find square of a number:
+```javascript
+var CalculatorService = angular.module('CalculatorService', [])
+.service('Calculator', function () {
+	this.square = function (a) { return a*a};
+});
+```
+
+An AngularJS service can be created or registered or created using the following different ways:
+
+* Using the service() method
+* Using the factory() method
+* Using the provider() method
+* Using the value() method
+* Using the constant() method
+
+### What are directives?
+
+#### ng-src:
+**Example:**
+
+index.html:
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>NG-SRC Demo</title>
+    <script src="./angular.min.js"></script>
+    <script src="./angular-route.js"></script>
+    <script src="./script.js"></script>
+</head>
+<body ng-app="myApp">
+    <div ng-controller="myController">
+        <div>
+            <h2><label>Name:</label>{{ country.name }}</h2>
+        </div>
+        <div>
+            <h2><label>Capital:</label>{{ country.capital }}</h2>
+        </div>
+        <div>
+            <img ng-src="{{ country.flag }}" alt="Indian Flag" heigth="200px;" width="400px;" />
+        </div>
+        
+    </div>
+</body>
+</html>
+```
+script.js:
+```javascript
+var myApp = angular.module('myApp', [])
+
+.controller('myController', function($scope) {
+    $scope.country = {
+        name: "India",
+        capital: "New Delhi",
+        flag: "./indian_flag.png"
+    };
+});
+```
+
+## MySQL
+
+## PostgreSQL
+
+### What is PostgreSQL?
+PostgreSQL is an open-source, object-relational database management system (ORDBMS).
+
+PostgreSQL is developed by the `PostgreSQL Global Development Group`.
+
+It is released under the PostgreSQL License, which is an MIT-style license, 
+and thus free and open source software.
+
+PostgreSQL features highlights?
+
+* User-defined types
+* Table inheritance
+* Sophisticated locking mechanism
+* Foreign key referential integrity
+* Nested transactions (savepoints)
+* Multi-version concurrency control (MVCC)
+* Asynchronous replication
+
+The recent versions of PostgreSQL support the following features:
+
+* Native Microsoft Windows Server version
+* Tablespaces
+* Point-in-time recovery
+
+## NodeJS with MongoDB
+### What are efficient ways to use mongodb in nodejs application?
+* Use global instance of db
+```javascript
+var db =  mongodb.connect('MongoDB connection URL'); 
+var app = express();
+app.set('db', db);
+```
+* Attach db using middleware
+```javascript
+var db =  mongodb.connect('MongoDB connection URL');
+app.use(function(req, res, next) {
+	req.db = db;
+})
+```
+* Reuse db object created by MongoClient.connect()
+```javascript
+use this line in a module where required:
+MongoClient.connect('MongoDB connection URL')
+```
+
+## NodeJS With MySQL 
+
+### How can I prevent SQL injection Node.JS?
+We can prevent sql-injection by parameter binding:
+
+**Example:**
+```javascript
+var userId = 5; 
+connection.query("SELECT * FROM table WHERE userid = '" + userId + "'", function(error) { 
+	if (error) throw error; 
+});
+
+//We can modify above query as:
+var userId = 5; 
+var sql =  'SELECT * FROM users WHERE id = ?';
+var query = connection.query(sql, [userId], function(err, results) { //query.sql returns SELECT * FROM users WHERE id = '5' 
+	if (err) throw error;
+});
+```
+
 
 # Questions And Answers
 
 ## JavaScript Questions And Answers
+
+### How to delete existing directory recursively?
+```javascript
+//path is the reference to a directory
+removeDir.deleteFolderRecursive = function(path) {
+	if( fs.existsSync(path) ) {
+		fs.readdirSync(path).forEach(function(file,index){
+			var curPath = path + "/" + file;
+			if(fs.lstatSync(curPath).isDirectory()) { 
+				// recurse
+				removeDir.deleteFolderRecursive(curPath);
+			} else { 
+				// delete file
+				console.log('deleting file : '+curPath);
+				fs.unlinkSync(curPath);
+			}
+		});
+		console.log('deleting directory : '+path);
+		fs.rmdirSync(path);
+	}
+};
+```
 
 ### How to use async/await in an array?
 **Example:**
@@ -2898,109 +3982,7 @@ Where:
 * **arr:** The array object the current element belongs to.
 * **initialValue:** A value to be passed to the function as the initial value.
 
-## NodeJS Questions And Answers
 
-### What does npm start in NodeJS?
-npm start will run whatever you have defined for the start command of the scripts object in your package.json file.
-
-So if it looks like this:
-```JSON
-"scripts": {
-  "start": "ng serve"
-}
-```
-Then npm start will run ng serve.
-
-### How to get clientId/clientSecret of Gmail account?
-Follow the below steps
-
-* Register your Application at Google APIs Console. [click here to register your app]('https://console.developers.google.com/') and create a new project if you don't have and go to API Access & Services Page. see below image: 
-
-![Image Reference](https://drive.google.com/uc?export=view&id=1lomvGQJJkVNVEMykVNTeNjjgjr-5hvMg)
-
-* Click on `OAuth Consent Screeen` and write any product name of your choice and save it. 
-  
-  **For Example:**
-  
-  ![Image Reference](https://drive.google.com/uc?export=view&id=1lAbQpko8IJI2WxHhpJ9dISjUZ-0eLXhz)
-
-* Now Select `create cridentials` and select `Oauth Client Id`. Here, when 
-  you create a client ID, [Set this URL](https://developers.google.com/oauthplayground) into the text 
-  box for Redirect URIs.
-  
-  See below image for reference:
-   
-  ![Image Reference](https://drive.google.com/uc?export=view&id=13SMyNiZGq4kONRtz_pxq0UjhVEb4ZWWq)
- 
-
-* You must be obtained your client ID & client secret.
-
-* Open Google OAuth2.0 Playground. [Click here]('https://developers.google.com/oauthplayground') to open Google OAuth2.0 Playground Page and click the gear button on the right-top. 
-
-  see reference image:
-
-  ![Image Reference](https://drive.google.com/uc?export=view&id=1GTKRV9Ixe1O3R_aPRyyn_dzaKBcQef0L)
-
-* Set your `clientId` & `clientSecret` that obtained on step 3, and set 
- `Access token location` to `Authorization header w/ Bearer prefix`. Once done, close it.
-
-* **Set up and authorize API:** Select an API from the scope list and click `Authorize API`.
-  
-  See reference image:
-  ![Image Reference](https://drive.google.com/uc?export=view&id=1LBi32eUprrnGUUycc4bgIJk9RqdMgNNa)
-
-* **Obtain the `refresh token`**: After OAuth2.0 authorization, click `Exchange authorization code for tokens` button. You will get your refresh token.
-
-See reference image:
-
-![Image Reference](https://drive.google.com/uc?export=view&id=1NXO7RZFijpRBNTGLHWJ_ITlweT7gHRdp)
-
-* You must obtain `refresh token` and `access Token`.
-
-### How to prevent `GET /favicon.ico` in express application?
-
-Browsers will by default try to request `/favicon.ico` from the root of a hostname, in order to show an icon in the browser tab.
-
-If you want to avoid this request returning a 404, you can either:
-
-* Supply a favicon.ico file that is available at the root of your site.
-* Use a module such as serve-favicon to point requests to a specific file.
-* Catch the favicon.ico request and send a 204(No Content status):
-```javascript
-app.get('/favicon.ico', function(req, res) {
-    res.snedStatus(204);
-});
-```
-
-### How to clone github project including submodules?
-
-You can use this command to clone your repo with all the submodules:
-```
-git clone --recursive YOUR-GIT-REPO-URL
-```
-Or if you have already cloned the project, you can use:
-```
-git submodule init
-git submodule update
-```
-
-### How to check whether `path_string` is a file or directory?
-```javascript
-fs.lstatSync(path_string).isDirectory(); //returns true if path_string is a directory. 
-fs.lstatSync(path_string).isFile(); //returns true if path_string is a file.
-```
-
-### How to set custom favicon in Express?
-
-Install the `favicon` middleware and then do:
-```javascript
-var favicon = require('serve-favicon');
-
-app.use(favicon(__dirname + '/public/images/favicon.ico'));
-
-//Or better, using the path module:
-app.use(favicon(path.join(__dirname,'public','images','favicon.ico')));
-```
 
 ## MongoDB Questions And Answers
 
@@ -3218,274 +4200,4 @@ body: {
 
 ```
 
-# Important Commands
 
-## Linux Commands
-
-### check ubuntu version
-`$ lsb_release -a`
-
-### Change password for a user in ubuntu
-`$ passwd`
-
-### access to the root directories
-```
-$ sudo -H /bin/bash 
-$ cd /etc/apt
-do your editing of files
-exit
-```
-### create a soft link
-`$ sudo ln -fs /home/hotam/project/git/QA-automation /etc/automation`
-
-### Check Permissions For A Directory or File in linux
-`$ ls -la /root or <any directory here>`
-
-### edit `/etc/environment` directory
-`$ sudo -H gedit /etc/environment`
-
-### create hard link in linux
-`$ ln {source} {link}`
-
-### Enable wifi
-`$ sudo service network-manager restart`
-
-### get wi-fi configuration
-`$ iwconfig`
-
-### Get all info and cause of issue in a txt file.
-`$ wget -N -t 5 -T 10 https://github.com/UbuntuForums/wireless-info/raw/master/wireless-info && chmod +x wireless-info && ./wireless-info`
-
-### BIOS status for bluetooth and wi-fi
-```
-$ rfkill list
-$ sudo rfkill unblock all
-```
-
-### Install cryptkeeper on ubuntu
-```
-$ sudo apt-get update
-$ sudo apt-get install cryptkeeper
-```
-
-## GitHub Commands
-
-### Fiest commit on GitHub
-```
-$ echo "# elasticsearch_with_node" >> README.md
-$ git init
-$ git add .
-$ git add README.md //optional
-$ git commit -m "first commit"
-$ git remote add origin https://github.com/hotam-singh/<repository_name>.git
-$ git push -u origin master
-```
-### Ignore config.json before commiting.
-```
-$ git update-index --assume-unchanged <file>
-
-//Example:
-$ git update-index --assume-unchanged config.json
-```
-###  Re-commit config.json before commiting.
-```
-$ git update-index --no-assume-unchanged <file>
-
-//Example:
-$ git update-index --no-assume-unchanged config.json
-```
-
-## NodeJS Commands
-
-### install node.js in ubuntu
-```
-$ sudo apt-get update
-$ sudo apt-get install nodejs
-$ nodejs -v
-```
-
-### install npm in ubuntu
-```
-$ sudo apt-get install npm
-$ npm -v
-```
-
-### replace nodejs with node
-```
-$ ln -s /usr/bin/nodejs /usr/bin/node OR sudo ln -s /usr/bin/nodejs /usr/bin/node
-$ nodejs -v
-$ node -v
-```
-
-### upgrade node to the latest version
-```
-$ sudo npm cache clean -f
-$ sudo npm install -g n
-$ sudo n stable
-$ node -v
-```
-
-### Updating node modules inside package.json
-```
-$ sudo npm install -g npm-check-updates
-$ ncu
-$ ncu –u
-$ npm install
-```
-
-### Stop running process
-```
-$ killall node
-$ ps -ef|grep node
-```
-
-### To get any application already running on specific port which we are trying to connect to
-`$ sudo lsof -i -P -n | grep LISTEN`
-
-### Killing Node Process Running In Backend solution: 1
-`$ pkill -f node`
-
-### Killing Node Process Running In Backend solution: 2
-```
-$ ps aux | grep node
-$ kill -9 process_id
-```
-
-## NPM Commands
-
-### update npm to latest version 
-`$ sudo npm i -g npm`
-
-## MySQL Commands
-
-### Install mysql on ubuntu
-```
-$ sudo apt-get update
-$ sudo apt-get install mysql-server
-
-// Run security script. It will allow you to set default security settings.
-$ mysql_secure_installation
-```
-
-### connect to mysql database
-`$ mysql -u root -p`
-
-### change mysql password if forgot
-```
-$ sudo /etc/init.d/mysql stop
-$ sudo mysqld --skip-grant-tables & mysql -u root mysql
-$ UPDATE mysql.user SET Password=PASSWORD('YOURNEWPASSWORD') WHERE User='root'; FLUSH PRIVILEGES; exit;
-```
-
-### To verify my mysql installed or not on ubuntu
-`$ dpkg --get-selections | grep mysql`
-
-### run mysql on beta server
-`$ mysql -hbetadb.websitetoolbox.com -uhotam -p`
-
-### Check version of MYSQL
-`$ SELECT VERSION(); after login into mysql shell`
-
-### dump data from database
-```
-$ mysqldump -h <hostname> -u <user> --password=<password> <databasename> > filename.sql   in your terminal
-Example:
-$ mysqldump -h localhost -u root --password=902819 test > test.sql
-```
-### dump data into database
-```
-$ mysqldump -h <hostname> -u <user> --password=<password> <databasename> < filename.sql   in your terminal
-Example:
-$ mysqldump -h localhost -u root --password=902819 test < test.sql
-```
-
-### create database
-`$ create database <database_namee>;`
-
-
-### drop database
-`$ drop database <datanase_name>;`
-
-## PostgresQL Commands
-
-### postgres database commands
-```
-$ sudo service postgresql restart
-$ dropdb ETP_test
-$ createdb ETP_test
-$ sudo -u postgres psql -d ETP_test -c "alter user "$USER" with password 'password';"
-```
-
-### Running postgres database 
-```
-$ sudo -u postgres psql
-$ \list or \l      //List all databases
-$ \connect database_name or \c databse_name     //Connect to listed databases
-$ \dt     //List Database Tables
-```
-
-### Creating dump file of existing data in postgres
-`$ pg_dump -U $USER -W -d database_name > ETPDump_file  //-W=password, -d=dump`
-
-### Create dump file of existing database schema in pstgres
-`$ pg_dump -U $USER -W -Cs ETP_test > ETPDump  //-W=password -Cs=create schema`
-
-### Back up single table from a database
-`$ pg_dump --host localhost --port 5432 -U $USER --format plain --verbose --file "file_name_here" --table public.<table_name_here> <database_name_here>`
-
-### Check version of PostgreSQL
-`SELECT VERSION(); after login into postgres shell`
-
-### dump data into database
-```
-$ psql <database_name> < filename
-Example:
-$ psql dump < psqldump
-```
-
-### dump data from database
-```
-$ pg_dump <database_name> > filename
-Example:
-$ pg_dump puppies > psqldump
-```
-
-## MongoDB Commands
- 	
-### check mongodb version
-In mongo shell:
-
-`db.version()`
-
-### dump data to mongodb
-`$ mongoimport -d <database name> -c <collection name> --type <file type> <path to a file> --headerline`
-
-### dump database from mongodb
-`$ mongoexport --db <datanase_name> --collection <collection_name> --out filename.json/filename.csv`
-
-## Elasticsearch Commands
-
-### Elastic Search server Configuration on production server
-```
-//After installation process, run below command to give permissions to elasticsearch directory
-$ sudo chown -R elasticsearch:elasticsearch /var/lib/elasticsearch/
-```
-
-### Edit configuration of elasticsearch
-```
-//etc/elasticsearch/elasticsearch.yml file
-$ sudo nano /etc/elasticsearch/elasticsearch.yml
-```
-
-### Restart elastic search server when any modification is made in /etc/elasticsearrch/elasticsearch.yml
-```
-$ sudo service elasticsearch restart
-$ sudo /etc/init.d/elasticsearch start
-```
-
-### Get the status of elasticsearch server status
-```
-$ sudo service elasticsearch status 
-// OR 
-$ curl -X GET 'http://<server_ip_address>:9200'
-```
