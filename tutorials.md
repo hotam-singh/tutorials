@@ -22,41 +22,50 @@
 	21. [What are nodejs HTTP module limitations](#what-are-nodejs-http-module-limitations)
 	22. [What are middlewares in nodejs](#what-are-middlewares-in-nodejs)
 	23. [What is the difference between exports and module.exports](#what-is-the-difference-between-exports-and-module.exports)
-2. [NodeJS Pupular Modules](#nodejs-pupular-modules)
-    * [express](#express)
-   	* [cookie-parser](#cookie-parser)
-   	* [body-parser](#body-parser)
-   	* [async](#async)
-   	* [socket.io](#socketio)
-    * [engine.IO](#engineio)
-   	* [passport](#passport)   
-   	* [nodemailer](#nodemailer)
-   	* [mysql](#mysql)
-   	* [mongodb](#mongodb)
-    * [mongoose](#mongoose)
-   	* [lodash](#Lodash)
-   	* [request](#request)
-   	* [chalk](#chalk)
-   	* [bluebird](#bluebird)
-    * [commander](#commander)
-   	* [moment](#moment)
-   	* [fs](#fs)
-   	* [q](#q)
-    * [winston](#winston)
-   	* [swagger](#swagger)
-   	* [redis](#redis)
-   	* [handlebars](#handlebars)
-   	* [ejs](#ejs)
-    * [dotenv](#dotenv)
-   	* [jsonwebtoken](#jsonwebtoken)
-   	* [cors](#cors) 
-3. [MongoDB](#mongodb)
-4. [AngularJS](#angularjs)
-5. [JavaScript](#javascript)
-6. [MySQL](#mysql)
-7. [PostgreSQL](#postgresql)
-8. [Elasticsearch](#Elasticsearch)
-
+  	24. [NodeJS Pupular Modules](#nodejs-pupular-modules)
+    	* [express](#express)
+   		* [cookie-parser](#cookie-parser)
+   		* [body-parser](#body-parser)
+   		* [async](#async)
+   		* [socket.io](#socketio)
+    	* [engine.IO](#engineio)
+   		* [passport](#passport)   
+   		* [nodemailer](#nodemailer)
+   		* [mysql](#mysql)
+   		* [mongodb](#mongodb)
+    	* [mongoose](#mongoose)
+   		* [lodash](#Lodash)
+   		* [request](#request)
+   		* [chalk](#chalk)
+   		* [bluebird](#bluebird)
+    	* [commander](#commander)
+   		* [moment](#moment)
+   		* [fs](#fs)
+   		* [q](#q)
+    	* [winston](#winston)
+   		* [swagger](#swagger)
+   		* [redis](#redis)
+   		* [handlebars](#handlebars)
+   		* [ejs](#ejs)
+    	* [dotenv](#dotenv)
+   		* [jsonwebtoken](#jsonwebtoken)
+   		* [cors](#cors)
+  	25. [NodeJS Questions And Answers](#nodejs-questions-and-answers)  
+2. [MongoDB](#mongodb)
+3. [AngularJS](#angularjs)
+4. [JavaScript](#javascript)
+5. [MySQL](#mysql)
+6. [PostgreSQL](#postgresql)
+7. [Elasticsearch](#Elasticsearch)
+8. [Important Commands](#important-commands)
+	1. [Linux Commands](#linux-commands)
+ 	2. [GitHub Commands](#github-commands)
+  	3. [NodeJS Commands](#nodejs-commands)
+  	4. [NPM Commands](#npm-commands)
+  	5. [MySQL Commands](#mysal-commands)
+  	6. [PostgresQL Commands](#postgresql-commands)
+  	7. [MongoDB Commands](#mongodb-commands)
+  	8. [Elasticsearch Commands](#elasticsearch-commands)
 
 # NodeJS
 
@@ -963,7 +972,8 @@ app.use('/static', express.static('public'))
 ```
 Now, you can load the files that are in the public directory from the /static path prefix.
 
-### FAQ:
+### FQA
+
 #### How should I structure my application?
 We can structure our application in the following ways:
 
@@ -1056,6 +1066,31 @@ app.use(function (err, req, res, next) {
 })
 ```
 
+#### How to set custom favicon in Express?
+
+Install the `favicon` middleware and then do:
+```javascript
+var favicon = require('serve-favicon');
+
+app.use(favicon(__dirname + '/public/images/favicon.ico'));
+
+//Or better, using the path module:
+app.use(favicon(path.join(__dirname,'public','images','favicon.ico')));
+```
+#### How to prevent `GET /favicon.ico` in express application?
+
+Browsers will by default try to request `/favicon.ico` from the root of a hostname, in order to show an icon in the browser tab.
+
+If you want to avoid this request returning a 404, you can either:
+
+* Supply a favicon.ico file that is available at the root of your site.
+* Use a module such as serve-favicon to point requests to a specific file.
+* Catch the favicon.ico request and send a 204(No Content status):
+```javascript
+app.get('/favicon.ico', function(req, res) {
+    res.snedStatus(204);
+});
+```
 ## cookie-parser
 Parse Cookie header and populate `req.cookies` with an object. Optionally you may enable signed cookie support by passing a secret string, which assigns `req.secret` so it may be used by other middleware.
 
@@ -1391,6 +1426,21 @@ async.series({
 }, function(err, results) {
     // results is now equal to: {one: 1, two: 2}
 });
+```
+## Async/Await
+
+### FQA
+#### ### How to process an array using async/await?
+```javascript
+var Promise = require('bluebird');
+
+async function processArray(arr) {
+    await Promise.all(arr.map(async function(tableName) {
+        console.log(tableName);
+    }));
+}
+
+processArray([1, 2, 3, 4, 5]);
 ```
 
 ## socket.io   
@@ -1910,6 +1960,52 @@ transporter.sendMail(mailOptions, function(err, info) {
 	console.log('mail sent successfully');
 });
 ```
+### FQA
+#### How to get clientId/clientSecret of Gmail account?
+Follow the below steps
+
+* Register your Application at Google APIs Console. [click here to register your app]('https://console.developers.google.com/') and create a new project if you don't have and go to API Access & Services Page. see below image: 
+
+![Image Reference](https://drive.google.com/uc?export=view&id=1lomvGQJJkVNVEMykVNTeNjjgjr-5hvMg)
+
+* Click on `OAuth Consent Screeen` and write any product name of your choice and save it. 
+  
+  **For Example:**
+  
+  ![Image Reference](https://drive.google.com/uc?export=view&id=1lAbQpko8IJI2WxHhpJ9dISjUZ-0eLXhz)
+
+* Now Select `create cridentials` and select `Oauth Client Id`. Here, when 
+  you create a client ID, [Set this URL](https://developers.google.com/oauthplayground) into the text 
+  box for Redirect URIs.
+  
+  See below image for reference:
+   
+  ![Image Reference](https://drive.google.com/uc?export=view&id=13SMyNiZGq4kONRtz_pxq0UjhVEb4ZWWq)
+ 
+
+* You must be obtained your client ID & client secret.
+
+* Open Google OAuth2.0 Playground. [Click here]('https://developers.google.com/oauthplayground') to open Google OAuth2.0 Playground Page and click the gear button on the right-top. 
+
+  see reference image:
+
+  ![Image Reference](https://drive.google.com/uc?export=view&id=1GTKRV9Ixe1O3R_aPRyyn_dzaKBcQef0L)
+
+* Set your `clientId` & `clientSecret` that obtained on step 3, and set 
+ `Access token location` to `Authorization header w/ Bearer prefix`. Once done, close it.
+
+* **Set up and authorize API:** Select an API from the scope list and click `Authorize API`.
+  
+  See reference image:
+  ![Image Reference](https://drive.google.com/uc?export=view&id=1LBi32eUprrnGUUycc4bgIJk9RqdMgNNa)
+
+* **Obtain the `refresh token`**: After OAuth2.0 authorization, click `Exchange authorization code for tokens` button. You will get your refresh token.
+
+See reference image:
+
+![Image Reference](https://drive.google.com/uc?export=view&id=1NXO7RZFijpRBNTGLHWJ_ITlweT7gHRdp)
+
+* You must obtain `refresh token` and `access Token`.
 
 ## mysql
 ### Introduction
@@ -2682,6 +2778,12 @@ newModel.find({}, function(err, docs) {
 ## q
 ## moment
 ## fs
+### FQA
+#### ### How to check whether `path_string` is a file or directory?
+```javascript
+fs.lstatSync(path_string).isDirectory(); //returns true if path_string is a directory. 
+fs.lstatSync(path_string).isFile(); //returns true if path_string is a file.
+```
 ## winston
 
 ### Instantiating your own Logger
@@ -3136,22 +3238,9 @@ server.listen(port, (err) => {
   console.log(`Server is listening on ${port}`)
 });
 ```
-## NodeJS Questions And Answers
-
-### How to process an array using async/await?
-```javascript
-var Promise = require('bluebird');
-
-async function processArray(arr) {
-    await Promise.all(arr.map(async function(tableName) {
-        console.log(tableName);
-    }));
-}
-
-processArray([1, 2, 3, 4, 5]);
-```
-
-### How to detect device type in nodejs?
+## express-device
+### FQA
+#### How to detect device type in nodejs?
 ```javascript
 'use strict';
 
@@ -3168,7 +3257,7 @@ app.listen('8081', function() {
     console.log('server started on port : 8081');
 });
 ```
-
+## NodeJS Questions And Answers
 ### What does npm start in NodeJS?
 npm start will run whatever you have defined for the start command of the scripts object in your package.json file.
 
@@ -3179,67 +3268,6 @@ So if it looks like this:
 }
 ```
 Then npm start will run ng serve.
-
-### How to get clientId/clientSecret of Gmail account?
-Follow the below steps
-
-* Register your Application at Google APIs Console. [click here to register your app]('https://console.developers.google.com/') and create a new project if you don't have and go to API Access & Services Page. see below image: 
-
-![Image Reference](https://drive.google.com/uc?export=view&id=1lomvGQJJkVNVEMykVNTeNjjgjr-5hvMg)
-
-* Click on `OAuth Consent Screeen` and write any product name of your choice and save it. 
-  
-  **For Example:**
-  
-  ![Image Reference](https://drive.google.com/uc?export=view&id=1lAbQpko8IJI2WxHhpJ9dISjUZ-0eLXhz)
-
-* Now Select `create cridentials` and select `Oauth Client Id`. Here, when 
-  you create a client ID, [Set this URL](https://developers.google.com/oauthplayground) into the text 
-  box for Redirect URIs.
-  
-  See below image for reference:
-   
-  ![Image Reference](https://drive.google.com/uc?export=view&id=13SMyNiZGq4kONRtz_pxq0UjhVEb4ZWWq)
- 
-
-* You must be obtained your client ID & client secret.
-
-* Open Google OAuth2.0 Playground. [Click here]('https://developers.google.com/oauthplayground') to open Google OAuth2.0 Playground Page and click the gear button on the right-top. 
-
-  see reference image:
-
-  ![Image Reference](https://drive.google.com/uc?export=view&id=1GTKRV9Ixe1O3R_aPRyyn_dzaKBcQef0L)
-
-* Set your `clientId` & `clientSecret` that obtained on step 3, and set 
- `Access token location` to `Authorization header w/ Bearer prefix`. Once done, close it.
-
-* **Set up and authorize API:** Select an API from the scope list and click `Authorize API`.
-  
-  See reference image:
-  ![Image Reference](https://drive.google.com/uc?export=view&id=1LBi32eUprrnGUUycc4bgIJk9RqdMgNNa)
-
-* **Obtain the `refresh token`**: After OAuth2.0 authorization, click `Exchange authorization code for tokens` button. You will get your refresh token.
-
-See reference image:
-
-![Image Reference](https://drive.google.com/uc?export=view&id=1NXO7RZFijpRBNTGLHWJ_ITlweT7gHRdp)
-
-* You must obtain `refresh token` and `access Token`.
-
-### How to prevent `GET /favicon.ico` in express application?
-
-Browsers will by default try to request `/favicon.ico` from the root of a hostname, in order to show an icon in the browser tab.
-
-If you want to avoid this request returning a 404, you can either:
-
-* Supply a favicon.ico file that is available at the root of your site.
-* Use a module such as serve-favicon to point requests to a specific file.
-* Catch the favicon.ico request and send a 204(No Content status):
-```javascript
-app.get('/favicon.ico', function(req, res) {
-    res.snedStatus(204);
-});
-```
 
 ### How to clone github project including submodules?
 
@@ -3253,23 +3281,7 @@ git submodule init
 git submodule update
 ```
 
-### How to check whether `path_string` is a file or directory?
-```javascript
-fs.lstatSync(path_string).isDirectory(); //returns true if path_string is a directory. 
-fs.lstatSync(path_string).isFile(); //returns true if path_string is a file.
-```
 
-### How to set custom favicon in Express?
-
-Install the `favicon` middleware and then do:
-```javascript
-var favicon = require('serve-favicon');
-
-app.use(favicon(__dirname + '/public/images/favicon.ico'));
-
-//Or better, using the path module:
-app.use(favicon(path.join(__dirname,'public','images','favicon.ico')));
-```
 # Important Commands
 
 ## Linux Commands
@@ -3561,21 +3573,14 @@ $ curl -X GET 'http://<server_ip_address>:9200'
  
 3. [Questions And Answers](#questions-and-answers)    
 	1. [JavaScript Questions And Answers](#javascript-questions-and-answers)
-    2. [NodeJS Questions And Answers](#nodejs-questions-and-answers)
+    
     3. [MongoDB Questions And Answers](#mongodb-questions-and-answers)
     4. [AngularJS Questions And Answers](#angularjs-questions-and-answers)
     5. [MySQL Questions And Answers](#mysql-questions-and-answers)
     6. [PostgreSQL Questions And Answers](#postgresql-questions-and-answers)
     7. [Elasticsearch Questions And Answers](#elasticsearch-questions-and-answers)
 4. [Important Commands](#important-commands)
-	1. [Linux Commands](#linux-commands)
- 	2. [GitHub Commands](#github-commands)
-    3. [NodeJS Commands](#nodejs-commands)
-    4. [NPM Commands](#npm-commands)
-    5. [MySQL Commands](#mysal-commands)
-    6. [PostgresQL Commands](#postgresql-commands)
-    7. [MongoDB Commands](#mongodb-commands)
-    8. [Elasticsearch Commands](#elasticsearch-commands)
+	
 
 
 
