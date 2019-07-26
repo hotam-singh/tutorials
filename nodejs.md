@@ -1377,22 +1377,137 @@ app.get('/api/users/me', passport.authenticate('basic', { session: false }), fun
     res.json({ id: req.user.id, username: req.user.username });
 });
 ```
-## nodemailer
-## mysql
-## mongodb
-## mongoose
-## lodash
-## request
-## chalk
-## bluebird
-## commander
-## moment
-## fs
-## q
-## winston
-## redis
-## handlebars
-## ejs
-## dotenv
-## jsonwebtoken
-## cors
+## Difference btw async.waterfall and async.series
+It appears that async.waterfall allows each function to pass its results on to the next function, while async.series passes all results to the final callback. At a higher level, 
+async.waterfall would be for a data pipeline ("given 2, multiply it by 3, add 2, and divide by 17"), while async.series would be for discrete tasks that must be performed in order, 
+but are otherwise separate.
+
+
+## Joi validate array/string
+Take a look at .alternatives().try() which supports multiple schemas for a single field.
+
+For example:
+
+Joi.alternatives().try(Joi.array().items(Joi.string()), Joi.string())
+This will validate both arrays of strings and plain strings, however as I'm sure you know, you'll still need server side logic to check which format the value is so you 
+can process it properly.
+
+## Joi validate string
+Joi.array().items(Joi.string())
+
+## let and const in nodejs
+If you're writing ES2015. declaring variables with let or const within a code block restricts their visibility to that block only. This is called block scoping.
+
+## Match redis Keys with a pattern using nodejs
+library.cache.client.keys("*pattern_here*", function(err, userKeys) {});
+
+Example:
+library.cache.client.keys("*userTimeHash_*", function(err, userKeys) {});
+
+
+## What does OAuth mean?
+There are a few things we need to know to be able to use OAuth in our applications.
+
+OAuth is used by the web service providers to provide access to user resources in a secure manner. Each developer using this service must create an OAuth application and, after, 
+requires the user to grant access to it.
+
+As a part of the OAuth flow, the user is redirected to the web service's server, to log in (this step can be omitted if the user has already logged in).
+
+## format your date from Date()
+```javascript
+exports.getIgnoredFile = function(currDate) {
+	return currDate.getFullYear()+'-'+('0' + (currDate.getMonth() + 1)).slice(-2)+'-'+('0' + currDate.getDate()).slice(-2)+'.log';
+}
+```
+
+## timestamp convertor from a date
+```javascript
+function calculateTimestamp(date) {
+    date = date.split('-');
+    var year = date[2];
+    var month = date[1];
+    var day = date[0];
+    var d1 = new Date(Date.UTC(2017, 9, 1, 17, 0, 0, 0));
+    var d2 = new Date(Date.UTC(year, (month - 1), day, 17, 0, 0, 0));
+    return parseInt((d2.getTime() - d1.getTime()) / 1000);
+}
+
+var startDate = '20-02-2018';
+var endDate = '21-02-2018';
+var startTime = calculateTimestamp(startDate);
+var endTime = calculateTimestamp(endDate);
+```
+
+## Encryption/Decryption in NodeJS
+```javascript
+// Nodejs encryption with GCM
+// Does not work with nodejs v0.10.31
+// Part of https://github.com/chris-rock/node-crypto-examples
+
+var crypto = require('crypto'),
+  algorithm = 'aes-256-gcm',
+  password = '3zTvzr3p67VC61jmV54rIYu1545x4TlY',
+  // do not use a global iv for production, 
+  // generate a new one for each encryption
+  iv = '60iP0h6vJoEa'
+
+function encrypt(text) {
+  var cipher = crypto.createCipheriv(algorithm, password, iv)
+  var encrypted = cipher.update(text, 'utf8', 'hex')
+  encrypted += cipher.final('hex');
+  var tag = cipher.getAuthTag();
+  return {
+    content: encrypted,
+    tag: tag
+  };
+}
+
+function decrypt(encrypted) {
+  var decipher = crypto.createDecipheriv(algorithm, password, iv)
+  decipher.setAuthTag(encrypted.tag);
+  var dec = decipher.update(encrypted.content, 'hex', 'utf8')
+  dec += decipher.final('utf8');
+  return dec;
+}
+
+var hw = encrypt("hello world")
+  // outputs hello world
+console.log(decrypt(hw));
+```
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+																			NodeJS With MongoDB
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# working with mongoose
+```javascript
+//mongooseSchema.js
+var mongoose = require('mongoose')
+
+const schema = new mongoose.Schema({
+    _id: mongoose.Schema.Types.ObjectId,
+    name: { type: String, min: 1, required: true }
+});
+
+module.exports =  mongoose.model('user',schema);
+
+```
+j
+```javascript
+//userQuery.js
+var User = require('./mongooseSchema');
+var user_id = 2;
+User.findOne({ name: user_id })
+  .then(function(err, user) {
+    console.log(err, user);
+    if(user) {
+      console.log("found user");
+      console.log(user);
+    } else {
+      console.log("user not found");
+    }
+  })
+  .catch(function(err) {
+      console.log('err : ', err);
+  });
+```

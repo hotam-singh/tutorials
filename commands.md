@@ -1,6 +1,59 @@
 # Important Commands
 
+## VIM editor commands
+
+### search in editor
+/<search-pattern>
+Example: /web3
+
+and press n for next occurrence 
+
+### Find each occurrence of 'foo' (in all lines), and replace it with 'bar'.
+:%s/<search-pattern>/<replaced-with-pattern>
+Example: :%s/foo/bar/g
+ 
+### Go to line number
+:<line-number>
+Example: :420
+
 ## Linux Commands
+
+### generate pem file for linux server
+ssh-keygen -t rsa -b 2048 -f FILENAME
+
+### Copy a repository from local to a remote server
+scp -ri <pem-file> source <user>@<ip>:<destination>
+scp -ri hotam.pem digibyte-7.17.2/ ubuntu@54.254.164.23:backup
+	
+### Copy a file from local to remote server
+scp -i <pem-file> source <user>@<IP>:<destination>
+scp -i hotam.pem digibyte-7.17.2/ ubuntu@54.254.164.23:backup
+
+### Get public IP
+curl ipinfo.io/ip
+
+### copy file from one user to another
+sudo cp /home/hotam/ETP/test/ETP-Linux-x86_64.tar.gz /home/etp/ETP-Linux-x86_64.tar.gz && sudo chown etp:etp /home/etp/ETP-Linux-x86_64.tar.gz
+
+sudo cp /home/hotam/ETP/test/etp-Linux-x86_64.tar.gz /home/etp/backup/etp-Linux-x86_64.tar.gz && sudo chown etp:etp /home/etp/backup/etp-Linux-x86_64.tar.gz
+
+cp backup/etp-Linux-x86_64.tar.gz ./
+
+### Grep some pattern
+grep -irl <pattern>
+Example: grep -irl web3/src
+
+### Create a zip of a folder
+find /full_path -path '*/.*' -prune -o -type f -print | zip ~/file.zip -@    //includes hidden files
+example: find /home/hotam/altcoin-exchange -path '*/.*' -prune -o -type f -print | zip ~/altcoin-exchange.zip -@
+
+### Upload a zip file to remote server
+scp  <source>  <user>@<host>:<path
+Example: scp  altcoin-exchange.zip  root@68.183.92.226:new-core
+								  
+### Unzip a zipped file
+unzip <zip-file-name>
+Example: unzip altcoin-exchange.zip
 
 ### 1. check ubuntu version
 `$ lsb_release -a`
@@ -126,6 +179,9 @@ OR
 cat ~/.ssh/id_rsa.pub
 ```
 
+### 7. How can I determine the URL that a local Git repository was originally cloned from?
+git config --get remote.origin.url
+
 ## NodeJS Commands
 
 ### 1. Install node.js in ubuntu
@@ -219,6 +275,13 @@ $ sudo rm -rf /usr/local/lib/node*
 $ sudo rm -rf /usr/local/include/node*
 $ sudo rm -rf /usr/local/bin/node*
 ```
+
+### 12. Auto generate .gitignore and add node_mosules to it
+echo node_modules/ >> .gitignore
+
+### 13. npm install error
+sudo apt-get install build-essential
+sudo apt-get install autoconf automake g++ libtool
 
 ## NPM Commands
 
@@ -389,6 +452,9 @@ rm -r /var/lib/postgresql/
 userdel -r postgres
 groupdel postgres
 ```
+
+### 14. Run pgAdmin 4
+cd ~/pgadmin4 && source bin/activate && python lib/python2.7/site-packages/pgadmin4/pgAdmin4.py
 
 ## MongoDB Commands
  	
